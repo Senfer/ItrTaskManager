@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .block {
+        height:600px; 
+        width:500px; 
+        background-color: lightgray; 
+        margin-top:50px; 
+        margin-left:30px; 
+        margin-right:50px; 
+    }
+
+    .block-header {
+        position:absolute; 
+        height:40px; 
+        width:500px; 
+        top:0px; 
+        left:0px;
+    }
+
+    .block-header-text {
+        font-size:35px; 
+        font-family:'Segoe UI'; 
+        font-weight:lighter; 
+        color:white; 
+        background-color: #fcd332; 
+    }
+
+    .block-table-text {
+        font-size:30px; 
+        font-family:'Segoe UI'; 
+        font-weight:lighter; 
+        color:gray; 
+        background-color: white; 
+        margin: 0px;
+        padding:5px
+    }
+    .glyphicon.glyphicon-one-fine-dot:before {
+    content:"\25cf";
+    font-size:3em;
+    }
+</style>
+
+<div id="main" class="row">
+    <div id="LatestT" class="col-md-4 block">
+        <div id="LatestTHeader" class="block-header">
+            <p class="well block-header-text">LATEST tasks</p>
+        </div>
+        <div style="position:absolute; top:90px; left:0px; width:500px;">
+            <div class="row well" style="width:496px; margin:2px; background-color:white; padding:3px; color:#87ff00">
+                <p class="col-md-7 block-table-text" align="left" style="color:#87ff00">TASK 1</p>
+                <p class="col-md-4 block-table-text" align="right" style="color:#87ff00">C#</p>
+                <span class="glyphicon glyphicon-one-fine-dot" style=" margin-top:-6px" aria-hidden="true"></span>
+            </div>
+            <div class="row well" style="width:496px; margin:2px; background-color:white; padding:3px; color:#ff6a00">
+                <p class="col-md-7 block-table-text" align="left" style="color:#ff6a00">TASK 2</p>
+                <p class="col-md-4 block-table-text" align="right" style="color:#ff6a00">C#</p>
+                <span class="glyphicon glyphicon-ban-circle" style="font-size:30px; margin-top:8px" aria-hidden="true"></span>
+            </div>
+            <div class="row well" style="width:496px; margin:2px; background-color:white; padding:3px; color:#fcd332">
+                <p class="col-md-7 block-table-text" align="left" style="color:#fcd332">TASK 3</p>
+                <p class="col-md-4 block-table-text" align="right" style="color:#fcd332">python</p>
+                <span class="glyphicon glyphicon-ban-circle" style="font-size:30px; margin-top:8px" aria-hidden="true"></span>
+            </div>
+            <div class="row well" style="width:496px; margin:2px; background-color:white; padding:3px; color:#ff6a00">
+                <p class="col-md-7 block-table-text" align="left" style="color:#ff6a00">TASK 4</p>
+                <p class="col-md-4 block-table-text" align="right" style="color:#ff6a00">JAVA</p>
+                <span class="glyphicon glyphicon-ban-circle" style="font-size:30px; margin-top:8px" aria-hidden="true"></span>
+            </div>
+            <div class="row well" style="width:496px; margin:2px; background-color:white; padding:3px; color:#ff6a00">
+                <p class="col-md-7 block-table-text" align="left" style="color:#ff6a00">TASK 5</p>
+                <p class="col-md-4 block-table-text" align="right" style="color:#ff6a00">JAVA</p>
+                <span class="glyphicon glyphicon-ban-circle" style="font-size:30px; margin-top:8px" aria-hidden="true"></span>
+            </div>
+            <div class="row well" style="width:496px; margin:2px; background-color:white; padding:3px; color:#87ff00">
+                <p class="col-md-7 block-table-text" align="left" style="color:#87ff00">TASK 6</p>
+                <p class="col-md-4 block-table-text" align="right" style="color:#87ff00">ruby</p>
+                <span class="glyphicon glyphicon-ban-circle" style="font-size:30px; margin-top:8px" aria-hidden="true"></span>
+            </div>
+        </div>
+      
+     </div>
+    <div id="RatedT" class="col-md-4 block">
+        <div id="RatedTHeader" class="block-header">
+            <p class="well block-header-text">RATED tasks</p>
+        </div>
+    </div>
+    <div id="RatedU" class="col-md-4 block">
+        <div id="RatedUHeader" class="block-header">
+            <p class="well block-header-text">RATED users</p>
+        </div>
+    </div>
+    <div id="UnsolvedT" class="col-md-4 block">
+        <div id="RatedUHeader" class="block-header">
+            <p class="well block-header-text">UNSOLVED tasks</p>
+        </div>
+    </div>
+</div>
