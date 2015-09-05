@@ -146,3 +146,4 @@ C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.Securit
 C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.csprojResolveAssemblyReference.cache
 C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.dll
 C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.pdb
+C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Mvc.Mailer.dll
