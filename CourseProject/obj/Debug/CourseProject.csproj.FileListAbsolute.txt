@@ -147,3 +147,5 @@ C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.cspro
 C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.dll
 C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.pdb
 C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Mvc.Mailer.dll
+C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\SendGrid.SmtpApi.dll
+C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\SendGridMail.dll

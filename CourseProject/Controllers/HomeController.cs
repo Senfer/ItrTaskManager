@@ -3,11 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CourseProject.Mailers;
 
 namespace CourseProject.Controllers
 {
     public class HomeController : Controller
     {
+
+
+        //   Mailer TODO
+        private IUserMailer _userMailer = new UserMailer();
+        public IUserMailer UserMailer
+        {
+            get { return _userMailer; }
+            set { _userMailer = value; }
+        }
+        //
+
+
+
+
         public ActionResult Index( )
         {
             return View();
