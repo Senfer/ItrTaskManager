@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CourseProject.Mailers;
+using System.Net.Mail;
 
 namespace CourseProject.Controllers
 {
@@ -17,6 +18,12 @@ namespace CourseProject.Controllers
         {
             get { return _userMailer; }
             set { _userMailer = value; }
+        }
+        //
+        public ActionResult SendWelcomeMessage( )
+        {
+            UserMailer.Welcome().Send(); //Send() extension method: using Mvc.Mailer
+            return RedirectToAction( "Index" );
         }
         //
 

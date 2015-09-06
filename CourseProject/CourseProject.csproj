@@ -256,6 +256,7 @@
     <Content Include="Views\ReportMailer\ReportProduced.cshtml" />
     <Content Include="Views\ReportMailer\ReportSent.cshtml" />
     <Content Include="Views\ReportMailer\ReportLoading.cshtml" />
+    <Content Include="Views\UserMailer\GoodBye.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
