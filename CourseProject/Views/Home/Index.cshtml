@@ -4,81 +4,64 @@
 
 <style>
     .block {
-        height:600px; 
-        width:500px; 
-        background-color: lightgray; 
-        margin-top:50px; 
-        margin-left:30px; 
-        margin-right:50px; 
-        box-shadow:50px 50px 35px rgba(4, 4, 4, 0.3);
-        outline: 3px solid #fcd332
+        height: auto;
+        width: 650px;
+        background-color: lightgray;
+        margin-top: 30px;
+        margin-left: 30px;
+        margin-right: 30px;
+        box-shadow: 70px 70px 35px rgba(4, 4, 4, 0.3);
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
     }
 
     .block-header {
-        position:absolute; 
-        height:40px; 
-        width:500px; 
-        top:0px; 
-        left:0px;
+        position: inherit;
+        height: auto;
+        width: auto;
+        top: 0px;
+        left: 0px;
     }
 
     .block-header-text {
-        font-size:35px; 
-        font-family:'Segoe UI'; 
-        font-weight:lighter; 
-        color:white; 
-        padding:19px;
-        
-        
-        
-        @*background-color: #87ff00;
+        font-size: 35px;
+        font-family: 'Segoe UI';
+        font-weight: lighter;
+        color: white;
+        padding: 19px;
+        margin-bottom: 2px;
 
-        background-color: #7984ff; *@
 
-        background-color: #fcd332; 
-    }
-
-    .block-row {
-        width:496px; 
-        margin:2px; 
-        background-color:white; 
-        padding:3px;
+        @*background-color: #7be068;
+        background-color: #7984ff;
+        *@ background-color: #fcd332;
     }
 
     .block-table-text {
-        font-size:30px; 
-        font-family:'Segoe UI'; 
-        font-weight:lighter; 
-        color:gray; 
+        font-size: 30px;
+        font-family: 'Segoe UI';
+        font-weight: lighter;
+        color: gray;
         margin: 0px;
-        padding:5px;
+        padding: 5px;
     }
+
     .glyphicon.glyphicon-one-fine-dot:before {
         content: "\25cf";
         font-size: 35px;
         margin-bottom: 0px;
-        padding:0px;
+        padding: 0px;
     }
 </style>
 
-@*<div class="row well block-row" style="color:#87ff00">
-        <p class="col-md-7 block-table-text" align="left" style="color:#87ff00;position:relative; width:60%">TASK 1</p>
-        <p class="col-md-4 block-table-text" align="right" style="color:#87ff00;position:relative; width:30%">C#</p>
-        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="position:relative; width:10%"></span>
-    </div>
-    
-    Возможный ряд таблицы
-    
-    *@
-
-<div id="main" class="row">
-    <div id="LatestT" class="col-md-1 block">
-        <div id="LatestTHeader" class="block-header">
+<div id="main" class="row" style="text-align:center">
+    <div id="LatestT" class="block">
+        <div id="LatestTHeader" class="block-header" style="text-align:left">
             <p class="block-header-text">LATEST tasks</p>
         </div>
-        <div style="position:absolute; top:90px; left:0px; width:500px">
-            <table style="width:500px">
-
+        <div style="position:relative; top:0px; left:0px; width:auto">
+            <table style="width:100%">
                 <tr style="background-color:white; border:3px solid lightgray">
                     <td class="block-table-text" style="padding:0px; width:60%; color:#87ff00; padding:4px" align="left">
                         TASK 1
@@ -87,7 +70,7 @@
                         C#
                     </td>
                     <td style="padding-bottom:6px;width:10%; color:#87ff00">
-                        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
                     </td>
                 </tr>
 
@@ -99,7 +82,7 @@
                         C#
                     </td>
                     <td style="padding-bottom:6px;width:10%; color:#fcd332">
-                        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
                     </td>
                 </tr>
 
@@ -111,7 +94,7 @@
                         C#
                     </td>
                     <td style="padding-bottom:6px;width:10%; color:#ff6a00">
-                        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
                     </td>
                 </tr>
 
@@ -123,7 +106,7 @@
                         C#
                     </td>
                     <td style="padding-bottom:6px;width:10%; color:#87ff00">
-                        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
                     </td>
                 </tr>
 
@@ -135,140 +118,285 @@
                         C#
                     </td>
                     <td style="padding-bottom:6px;width:10%; color:#fcd332">
-                        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
                     </td>
                 </tr>
 
                 <tr style="background-color:white; border:3px solid lightgray">
-                    <td class="block-table-text" style="padding:0px; width:60%; color:#ff6a00; padding:4px" align="left">
+                    <td class="block-table-text" style="padding:0px; width:60%; color:#87ff00; padding:4px" align="left">
                         TASK 1
                     </td>
-                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
+                    <td class="block-table-text" style="color:#87ff00; width:30%; padding:4px" align="right">
                         C#
                     </td>
-                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
-                        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    <td style="padding-bottom:6px;width:10%; color:#87ff00">
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
                     </td>
                 </tr>
 
                 <tr style="background-color:white; border:3px solid lightgray">
-                    <td class="block-table-text" style="padding:0px; width:60%; color:#ff6a00; padding:4px" align="left">
+                    <td class="block-table-text" style="padding:0px; width:60%; color:#fcd332; padding:4px" align="left">
                         TASK 1
                     </td>
-                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
+                    <td class="block-table-text" style="color:#fcd332; width:30%; padding:4px" align="right">
                         C#
                     </td>
-                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
-                        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    <td style="padding-bottom:6px;width:10%; color:#fcd332">
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
                     </td>
                 </tr>
-
-                <tr style="background-color:white; border:3px solid lightgray">
-                    <td class="block-table-text" style="padding:0px; width:60%; color:#ff6a00; padding:4px" align="left">
-                        TASK 1
-                    </td>
-                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
-                        C#
-                    </td>
-                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
-                        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
-                    </td>
-                </tr>
-
             </table>
-            <p class="block-table-text" style="margin-top:10px; background-color:#fcd332; color:white" align="right">VIEW ALL</p>
+            <p class="block-table-text" style="margin-top:10px; margin-bottom:10px; background-color:#fcd332; color:white" align="right">VIEW ALL</p>
         </div>
       
      </div>
-    <div id="RatedT" class="col-md-1 block">
-        <div id="RatedTHeader" class="block-header">
-            <p class="well block-header-text">RATED tasks</p>
+    <div id="RatedT" class=" block">
+        <div id="RatedTHeader" class="block-header" style="text-align:left">
+            <p class="block-header-text">RATED tasks</p>
         </div>
-        <div style="position:absolute; top:90px; left:0px; width:500px;">
-            <div class="row well block-row" style="color:#87ff00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#87ff00">TASK 1</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#87ff00">C#</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#ff6a00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#ff6a00">TASK 2</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#ff6a00">C#</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#fcd332">
-                <p class="col-md-7 block-table-text" align="left" style="color:#fcd332">TASK 3</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#fcd332">python</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#ff6a00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#ff6a00">TASK 4</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#ff6a00">JAVA</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#ff6a00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#ff6a00">TASK 5</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#ff6a00">JAVA</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#87ff00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#87ff00">TASK 6</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#87ff00">ruby</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#87ff00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#87ff00">TASK 6</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#87ff00">ruby</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <p class="block-table-text" style="margin-top:10px; background-color:#fcd332; color:white" align="right">VIEW ALL</p>
+        <div style="position:relative; top:0px; left:0px; width:auto">
+            <table style="width:100%">
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:40%; color:#87ff00; padding:4px" align="left">
+                        TASK 1
+                    </td>
+                    <td class="block-table-text" style="padding:0px; width:20%; color:#87ff00; padding:4px" align="center">
+                        55%
+                    </td>
+                    <td class="block-table-text" style="color:#87ff00; width:30%; padding:4px" align="right">
+                        C#
+                    </td>
+                    <td style="padding-bottom:6px;width:10%; color:#87ff00">
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:40%; color:#fcd332; padding:4px" align="left">
+                        TASK 1
+                    </td>
+                    <td class="block-table-text" style="padding:0px; width:20%; color:#87ff00; padding:4px" align="center">
+                        55%
+                    </td>
+                    <td class="block-table-text" style="color:#fcd332; width:30%; padding:4px" align="right">
+                        C#
+                    </td>
+                    <td style="padding-bottom:6px;width:10%; color:#fcd332">
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:40%; color:#ff6a00; padding:4px" align="left">
+                        TASK 1
+                    </td>
+                    <td class="block-table-text" style="padding:0px; width:20%; color:#87ff00; padding:4px" align="center">
+                        55%
+                    </td>
+                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
+                        C#
+                    </td>
+                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    </td>
+                </tr>
+
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:40%; color:#ff6a00; padding:4px" align="left">
+                        TASK 10
+                    </td>
+                    <td class="block-table-text" style="padding:0px; width:20%; color:#87ff00; padding:4px" align="center">
+                        55%
+                    </td>
+                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
+                        python
+                    </td>
+                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:40%; color:#ff6a00; padding:4px" align="left">
+                        TASK 1
+                    </td>
+                    <td class="block-table-text" style="padding:0px; width:20%; color:#87ff00; padding:4px" align="center">
+                        55%
+                    </td>
+                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
+                        C#
+                    </td>
+                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
+                        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:40%; color:#ff6a00; padding:4px" align="left">
+                        TASK 1
+                    </td>
+                    <td class="block-table-text" style="padding:0px; width:20%; color:#87ff00; padding:4px" align="center">
+                        55%
+                    </td>
+                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
+                        C#
+                    </td>
+                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
+                        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:40%; color:#ff6a00; padding:4px" align="left">
+                        TASK 1
+                    </td>
+                    <td class="block-table-text" style="padding:0px; width:20%; color:#87ff00; padding:4px" align="center">
+                        55%
+                    </td>
+                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
+                        C#
+                    </td>
+                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
+                        <span class="col-md-1 glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    </td>
+                </tr>
+            </table>
+            <p class="block-table-text" style="margin-top:10px; margin-bottom:10px; background-color:#fcd332; color:white" align="right">VIEW ALL</p>
         </div>
     </div>
-    <div id="RatedU" class="col-md-1 block">
-        <div id="RatedUHeader" class="block-header">
-            <p class="well block-header-text">RATED users</p>
+    <div id="RatedU" class="block" style="width:350px">
+        <div id="RatedUHeader" class="block-header" style="text-align:left">
+            <p class="block-header-text">RATED users</p>
+        </div>
+        <div style="position:relative; top:0px; left:0px; width:auto">
+            <table style="width:100%">
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:70%; color:gray; padding:4px" align="left">
+                        USER 1
+                    </td>
+                    <td class="block-table-text" style="color:gray; width:30%; padding:4px" align="right">
+                        99%
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:70%; color:gray; padding:4px" align="left">
+                        USER 2
+                    </td>
+                    <td class="block-table-text" style="color:gray; width:30%; padding:4px" align="right">
+                        98%
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:70%; color:gray; padding:4px" align="left">
+                        USER 1
+                    </td>
+                    <td class="block-table-text" style="color:gray; width:30%; padding:4px" align="right">
+                        98%
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:70%; color:gray; padding:4px" align="left">
+                        USER 1
+                    </td>
+                    <td class="block-table-text" style="color:gray; width:30%; padding:4px" align="right">
+                        98%
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:70%; color:gray; padding:4px" align="left">
+                        USER 1
+                    </td>
+                    <td class="block-table-text" style="color:gray; width:30%; padding:4px" align="right">
+                        98%
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:70%; color:gray; padding:4px" align="left">
+                        USER 1
+                    </td>
+                    <td class="block-table-text" style="color:gray; width:30%; padding:4px" align="right">
+                        98%
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:70%; color:gray; padding:4px" align="left">
+                        USER 1
+                    </td>
+                    <td class="block-table-text" style="color:gray; width:30%; padding:4px" align="right">
+                        98%
+                    </td>
+                </tr>
+            </table>
+            <p class="block-table-text" style="margin-top:10px; margin-bottom:10px; background-color:#fcd332; color:white" align="right">VIEW ALL</p>
         </div>
     </div>
-    <div id="UnsolvedT" class="col-md-1 block">
+    <div id="UnsolvedT" class="block">
         <div id="RatedUHeader" class="block-header">
-            <p class="well block-header-text">UNSOLVED tasks</p>
+            <p class="block-header-text">UNSOLVED tasks</p>
         </div>
-        <div style="position:absolute; top:90px; left:0px; width:500px;">
-            <div class="row well block-row" style="color:#87ff00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#87ff00">TASK 1</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#87ff00">C#</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#ff6a00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#ff6a00">TASK 2</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#ff6a00">C#</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#fcd332">
-                <p class="col-md-7 block-table-text" align="left" style="color:#fcd332">TASK 3</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#fcd332">python</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#ff6a00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#ff6a00">TASK 4</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#ff6a00">JAVA</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#ff6a00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#ff6a00">TASK 5</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#ff6a00">JAVA</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#87ff00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#87ff00">TASK 6</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#87ff00">ruby</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <div class="row well block-row" style="color:#87ff00">
-                <p class="col-md-7 block-table-text" align="left" style="color:#87ff00">TASK 6</p>
-                <p class="col-md-4 block-table-text" align="right" style="color:#87ff00">ruby</p>
-                <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true"></span>
-            </div>
-            <p class="block-table-text" style="margin-top:10px; background-color:#fcd332; color:white" align="right">VIEW ALL</p>
+        <div style="position:relative; top:0px; left:0px; width:auto">
+            <table style="width:100%">
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:60%; color:#ff6a00; padding:4px" align="left">
+                        TASK 11
+                    </td>
+                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
+                        C#
+                    </td>
+                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:60%; color:#ff6a00; padding:4px" align="left">
+                        TASK 15
+                    </td>
+                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
+                        JAVA
+                    </td>
+                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:60%; color:#ff6a00; padding:4px" align="left">
+                        TASK 12
+                    </td>
+                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
+                        python
+                    </td>
+                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    </td>
+                </tr>
+
+                <tr style="background-color:white; border:3px solid lightgray">
+                    <td class="block-table-text" style="padding:0px; width:60%; color:#ff6a00; padding:4px" align="left">
+                        TASK 14
+                    </td>
+                    <td class="block-table-text" style="color:#ff6a00; width:30%; padding:4px" align="right">
+                        ruby
+                    </td>
+                    <td style="padding-bottom:6px;width:10%; color:#ff6a00">
+                        <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                    </td>
+                </tr>
+            </table>
+            <p class="block-table-text" style="margin-top:10px; margin-bottom:10px; background-color:#fcd332; color:white" align="right">VIEW ALL</p>
+        </div>
+    </div>
+    <div id="TagCloud" class="block" style="width:1060px; height:360px; background-color:white">
+        <div id="TagCloudHeader" class="block-header">
+            <p class="block-header-text">TAG cloud</p>
         </div>
     </div>
 </div>
