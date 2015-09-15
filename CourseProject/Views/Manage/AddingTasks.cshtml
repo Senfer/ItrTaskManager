@@ -25,7 +25,7 @@
     }
 
     .block-header-text {
-        font-size: 35px;
+        font-size: 25px;
         font-family: 'Segoe UI';
         font-weight: lighter;
         color: white;
@@ -83,6 +83,22 @@
         display:inline-block;
     }
 
+    .answer {
+        padding:4px;
+        margin:3px;    
+        height:auto;
+        background-color:#7be068;
+        color:white;
+        display:inline-block;
+    }
+    .btn-answer {
+        padding:0px;
+        margin:0px;
+        margin-left:2px;
+        background-color:#7be068;
+        display:inline-block;
+    }
+
     [type=file] {
         position: absolute;
         filter: alpha(opacity=0);
@@ -126,13 +142,26 @@
 <div style="text-align:center">
     <div style="width:15%; display:inline-block;margin:0px; padding:0px; vertical-align:top; border-right:2px solid gray">
 
+        <div class="block" style="width:100%; height:auto; text-align:center">
+            <div class="block-header" style="text-align:left">
+                <p class="block-header-text" style="font-size:large; vertical-align:middle" id="TaskName">TASK name</p>
+                <button type="button" class="btn block-header-btn" style="height:100%; margin-bottom:0px; margin-top:0px; padding:0.5em;font-size:20px; height:40px; width:40px;vertical-align:middle" id="ChangeName">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true" style="color:white">
+                    </span>
+                </button>
+            </div>
+            <div>
+                <input id="NameInput" type="text" style="max-width:98%; width:98%; display:inline; margin:2px; align-self:center" placeholder="Enter NAME here">
+            </div>
+        </div>
+
         <div class="block" style="width:100%; height:auto">
             <div class="block-header" style="text-align:left">
                 <p class="block-header-text" style="font-size:large; vertical-align:middle">CATEGORY</p>
             </div>
             <div style="height:auto;padding:2px">
                 <div style="background: #eee;height:100%">
-                    <form class="block-table-text" style="padding:2px; color:gray;">
+                    <form id="Category" class="block-table-text" style="padding:2px; color:gray;">
                         <div class="radio" style="margin-top:0px">
                             <label><input name="category" type="radio" value="C#" checked>C#</label>
                         </div>
@@ -150,10 +179,12 @@
             </div>
         </div>
 
+
+
         <div class="block" style="width:100%; height:auto; text-align:center">
             <div class="block-header" style="text-align:left">
                 <p class="block-header-text" style="font-size: large; vertical-align:middle; margin:0px">TAGS</p>
-                <div data-alerts="alerts" data-ids="myid" data-fade="2000" style ="position:absolute; width:540px; top:10%; left:10%; margin:4px; padding:0px"></div>
+                <div data-alerts="alerts" data-ids="myid" data-fade="2000" style="position:fixed; width:540px; top:10%; left:10%; margin:4px; padding:0px"></div>
                 <button type="button" class="btn block-header-btn" style="height:100%; margin-bottom:0px; margin-top:0px; padding:0.5em;font-size:20px; height:40px; width:40px;vertical-align:middle" id="AddTag">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:white">
                     </span>
@@ -161,6 +192,27 @@
             </div>
             <input id="TagInput" type="text" style="max-width:98%; width:98%; display:inline; margin:2px; align-self:center" placeholder="Enter TAGS here">
             <div id="NewTags">
+            </div>
+        </div>
+
+        <div class="block" style="width:100%; height:auto">
+            <div class="block-header" style="text-align:left">
+                <p class="block-header-text" style="font-size:large; vertical-align:middle">DIFFICULTY</p>
+            </div>
+            <div style="height:auto;padding:2px">
+                <div style="background: #eee;height:100%">
+                    <form id="Difficulty" class="block-table-text" style="padding:2px; color:gray;">
+                        <div class="radio" style="margin-top:0px">
+                            <label><input name="difficulty" type="radio" value="EASY" checked>EASY</label>
+                        </div>
+                        <div class="radio">
+                            <label><input name="difficulty" type="radio" value="MEDIUM">MEDIUM</label>
+                        </div>
+                        <div class="radio" style="margin-bottom:0px">
+                            <label><input name="difficulty" type="radio" value="HARD">HARD</label>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -182,9 +234,29 @@
             </form>
         </div>
 
+        <div class="block" style="width:100%; height:auto; text-align:center">
+            <div class="block-header" style="text-align:left">
+                <p class="block-header-text" style="font-size: large; vertical-align:middle; margin:0px">ANSWERS</p>
+                <button type="button" class="btn block-header-btn" style="height:100%; margin-bottom:0px; margin-top:0px; padding:0.5em;font-size:20px; height:40px; width:40px;vertical-align:middle" id="AddAnswer">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:white">
+                    </span>
+                </button>
+            </div>
+            <input id="AnswerInput" type="text" style="max-width:98%; width:98%; display:inline; margin:2px; align-self:center" placeholder="Enter ANSWERS here">
+            <div id="NewAnswers">
+            </div>
+        </div>
+
+
+        <form id="Submit" action="/Manage/AddingTasks">
+            <div class="block" style="width:100%; height:auto; text-align:center">
+                <button type="submit" id="SubmitButton" class="block-header-text" style="font-size:large; width:100%">SUBMIT TASK</button>
+            </div>
+        </form>
+
     </div>
     <div style="width:82%; display:inline-block; padding:0px; border-left:2px solid gray">
-        <div class="block" style="width:100%">
+        <div class="block" style="width:100%; height:auto">
             <div class="block-header" style="background-color: #7be068;">
                 <p class="block-header-text">MARKDOWN text</p>
             </div>
@@ -193,11 +265,11 @@
             </div>
         </div>
 
-        <div class="block" style="width:100%">
+        <div class="block" style="width:100%; height:auto">
             <div class="block-header">
                 <p class="block-header-text">HTML view</p>
             </div>
-            <div id="output" style="position:relative; width:auto; padding:10px">
+            <div id="output" style="height:630px;width:auto; padding:10px; overflow-y:auto">
             </div>
         </div>
     </div>
@@ -214,6 +286,33 @@
     $.cloudinary.config({ cloud_name: 'dbq2uhuex', api_key: '779953936715183' });
 
     var Tags = [];
+    var Answers = [];
+
+    var Category = "C#";
+    var Difficulty = "EASY";
+    var Rating = 0;
+
+
+    $("#NameInput")[0].onkeypress = function (event) {
+        if (event.keyCode == 13) {
+            var str = $("#NameInput")[0].value;
+            $("#TaskName")[0].textContent = 'TASK name : ' + str;            
+        }
+    }
+
+    $("#ChangeName")[0].onclick = function () {
+        var str = $("#NameInput")[0].value;
+        $("#TaskName")[0].textContent ='TASK name : ' + str;
+        
+    }
+
+    $("#Category")[0].onchange = function () {
+        Category = $("#Category")[0].category.value;
+    }
+
+    $("#Difficulty")[0].onchange = function () {
+        Difficulty = $("#Difficulty")[0].difficulty.value;
+    }
 
     $("#input")[0].oninput = function () {
         Convert();
@@ -224,6 +323,13 @@
         var converter = new showdown.Converter({ parseShet: true });
         var html = converter.makeHtml(input.value);
         $("#output")[0].innerHTML = html;
+    }
+
+    function ShowAlert(message, type) {
+        $(document).trigger("add-alerts", [{
+            'message': message,
+            'priority': type
+        }]);
     }
 
     $("#TagInput")[0].onkeypress = function (event) {
@@ -250,13 +356,6 @@
         }
     }
 
-    function ShowAlert(message, type) {
-        $(document).trigger("add-alerts", [{
-            'message': message,
-            'priority': type
-        }]);
-    }
-
     function TagAdd() {
         Tags[Tags.length] = $("#TagInput")[0].value;
         var NewTagElement = document.createElement('div');
@@ -271,6 +370,50 @@
         $(".btn-tag").click(function () { TagDelete(this) })
     }
 
+
+
+
+    $("#AnswerInput")[0].onkeypress = function (event) {
+        if (event.keyCode == 13) {
+            AnswerAddTrying();
+        }
+    }
+
+    $("#AddAnswer")[0].onclick = function () {
+        AnswerAddTrying();
+    }
+
+
+    function AnswerAddTrying() {
+        if (Answers.indexOf($("#AnswerInput")[0].value) == -1) {
+            if ($("#AnswerInput")[0].value != '') {
+                AnswerAdd();
+            }
+            else
+                ShowAlert("You cannot enter empty answer.", 'danger');
+        }
+        else {
+            ShowAlert("You cannot enter the same answer.", 'danger');
+        }
+    }
+
+    function AnswerAdd() {
+        Answers[Answers.length] = $("#AnswerInput")[0].value;
+        var NewAnswerElement = document.createElement('div');
+        NewAnswerElement.classList.add("answer");
+        var NewAnswerText = '<p style="margin:0px; display:inline-block;">' + $("#AnswerInput")[0].value + '</p>';
+        var NewAnswerButton = '<button class="btn btn-answer"><span class = "glyphicon glyphicon-remove-circle" aria-hidden="true" style="color:white"></span></button>';
+        $(NewAnswerElement).append(NewAnswerText);
+        $(NewAnswerElement).append(NewAnswerButton);
+        $("#NewAnswers").append(NewAnswerElement);
+        $("#AnswerInput")[0].value = "";
+        $("#AnswerInput")[0].focus();
+        $(".btn-answer").click(function () { TagDelete(this) })
+    }
+
+
+
+
     function TagDelete(thisTag) {
         Tags.forEach(function (item, i, Tags) {
             if (item == thisTag.parentNode.firstChild.textContent)
@@ -278,7 +421,7 @@
         })
         thisTag.parentNode.parentNode.removeChild(thisTag.parentNode);
     }
-
+    
     $("#AddFile")[0].onchange = function () {
         FileAddTrying($("#AddFile")[0].value)
     }
@@ -322,8 +465,19 @@
         var file = event.dataTransfer.files[0];
         $("#AddFile")[0].files[0] = file;
         FileAddTrying(file.name);
-        
-       
     };
+
+    $("#SubmitButton")[0].onclick = function () {
+        for (var i=0; i < Tags.length; i++)
+            $("#Submit")[0].innerHTML += '<input type="hidden" name="Tags" id="Tags" value="' + Tags[i] + '"/>';
+        for (var i=0; i < Answers.length; i++)
+            $("#Submit")[0].innerHTML += '<input type="hidden" name="Answers" id="Answers" value="' + Answers[i] + '"/>';
+        $("#Submit")[0].innerHTML += '<input type="hidden" name="Name" id="Name" value="' + $("#NameInput")[0].value + '"/>';
+        $("#Submit")[0].innerHTML += '<input type="hidden" name="HTML" id="HTML" value="' + $("#input")[0].value + '"/>';
+        $("#Submit")[0].innerHTML += '<input type="hidden" name="Category" id="Category" value="' + Category + '"/>';
+        $("#Submit")[0].innerHTML += '<input type="hidden" name="Difficulty" id="Difficulty" value="' + Difficulty + '"/>';
+        $("#Submit")[0].innerHTML += '<input type="hidden" name="Rating" id="Rating" value="' + Rating + '"/>';
+        $("#Submit")[0].submit();
+    }
 
 </script>

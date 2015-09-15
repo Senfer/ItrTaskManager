@@ -9,7 +9,8 @@
     padding-right: 15px;
     margin-left:15px;
     margin-right:15px;
-    max-width:1800px;
+    min-width:540px;
+    max-width:4000px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 

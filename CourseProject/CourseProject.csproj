@@ -40,18 +40,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Mvc.Mailer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvcMailer-vs2013.4.5.1-pre\lib\45\Mvc.Mailer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SendGrid.SmtpApi, Version=1.3.1.0, Culture=neutral, PublicKeyToken=2ae73662c35d80e4, processorArchitecture=MSIL">
-      <HintPath>..\packages\SendGrid.SmtpApi.1.3.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SendGridMail, Version=6.1.0.0, Culture=neutral, PublicKeyToken=2ae73662c35d80e4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sendgrid.6.1.0\lib\SendGridMail.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -176,13 +164,33 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mailers\CommentMailer.cs" />
-    <Compile Include="Mailers\ICommentMailer.cs" />
-    <Compile Include="Mailers\IReportMailer.cs" />
-    <Compile Include="Mailers\IUserMailer.cs" />
-    <Compile Include="Mailers\ReportMailer.cs" />
-    <Compile Include="Mailers\UserMailer.cs" />
+    <Compile Include="Migrations\201509042332104_InitialCreate.cs" />
+    <Compile Include="Migrations\201509042332104_InitialCreate.Designer.cs">
+      <DependentUpon>201509042332104_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509142237124_UserTask.cs" />
+    <Compile Include="Migrations\201509142237124_UserTask.Designer.cs">
+      <DependentUpon>201509142237124_UserTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509142256501_UserTask2.cs" />
+    <Compile Include="Migrations\201509142256501_UserTask2.Designer.cs">
+      <DependentUpon>201509142256501_UserTask2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509142314174_Answers.cs" />
+    <Compile Include="Migrations\201509142314174_Answers.Designer.cs">
+      <DependentUpon>201509142314174_Answers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509142315089_Answers2.cs" />
+    <Compile Include="Migrations\201509142315089_Answers2.Designer.cs">
+      <DependentUpon>201509142315089_Answers2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509150025150_Answers3.cs" />
+    <Compile Include="Migrations\201509150025150_Answers3.Designer.cs">
+      <DependentUpon>201509150025150_Answers3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\HomeViewModelscs.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,6 +208,10 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.bsAlerts.min.js" />
+    <Content Include="Scripts\jquery.cloudinary.js" />
+    <Content Include="Scripts\jquery.fileupload.js" />
+    <Content Include="Scripts\jquery.ui.widget.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -207,6 +219,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\showdown.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -246,17 +259,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\UserMailer\_Layout.cshtml" />
-    <Content Include="Views\UserMailer\Welcome.cshtml" />
-    <Content Include="Views\UserMailer\PasswordReset.cshtml" />
-    <Content Include="Views\CommentMailer\_Layout.cshtml" />
-    <Content Include="Views\CommentMailer\CommentPosted.cshtml" />
-    <Content Include="Views\CommentMailer\Liked.cshtml" />
-    <Content Include="Views\ReportMailer\_Layout.cshtml" />
-    <Content Include="Views\ReportMailer\ReportProduced.cshtml" />
-    <Content Include="Views\ReportMailer\ReportSent.cshtml" />
-    <Content Include="Views\ReportMailer\ReportLoading.cshtml" />
-    <Content Include="Views\UserMailer\GoodBye.cshtml" />
+    <Content Include="Views\Manage\AddingTasks.cshtml" />
+    <Content Include="Views\Home\FullTable.cshtml" />
+    <Content Include="Views\Manage\SolvingTask.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -267,6 +272,26 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201509042332104_InitialCreate.resx">
+      <DependentUpon>201509042332104_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509142237124_UserTask.resx">
+      <DependentUpon>201509142237124_UserTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509142256501_UserTask2.resx">
+      <DependentUpon>201509142256501_UserTask2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509142314174_Answers.resx">
+      <DependentUpon>201509142314174_Answers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509142315089_Answers2.resx">
+      <DependentUpon>201509142315089_Answers2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509150025150_Answers3.resx">
+      <DependentUpon>201509150025150_Answers3.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -286,7 +311,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2340</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2340/</IISUrl>
+          <IISUrl>http://localhost:8080/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

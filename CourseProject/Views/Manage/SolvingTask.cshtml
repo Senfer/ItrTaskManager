@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+
+<style>
+    .block {
+        height: auto;
+        width:auto;
+        background-color: lightgray;
+        margin-top: 30px;
+        margin-left: 0px;
+        margin-right: 0px;
+        box-shadow: 70px 70px 35px rgba(4, 4, 4, 0.3);
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+        word-break: break-all;
+    }
+
+    .block-header {
+        height: auto;
+        width: auto;
+        top: 0px;
+        left: 0px;
+        text-align: left;
+        background-color: #7be068;
+    }
+
+    .block-header-text {
+        font-size: 25px;
+        font-family: 'Segoe UI';
+        font-weight: lighter;
+        color: white;
+        padding: 9px;
+        background-color: #7be068;
+        display: inline-block;
+        word-break:normal
+    }
+
+    .block-header-btn {
+        font-size: 20px;
+        display: inline-block;
+        padding-top: 15px;
+        margin: 0px;
+        right: 0px;
+        background-color: #7be068;
+        color: white;
+        vertical-align: top;
+        border-radius: 0px;
+        border: 0px;
+        border-left: 2px solid lightgray;
+        border-right: 2px solid lightgray;
+    }
+
+    .block-table-text {
+        font-size: medium;
+        font-family: 'Segoe UI';
+        font-weight: lighter;
+        color: gray;
+        margin: 0px;
+        padding: 5px;
+    }
+
+    .glyphicon.glyphicon-one-fine-dot:before {
+        content: "\25cf";
+        font-size: 35px;
+        margin-bottom: 0px;
+        padding: 0px;
+    }
+
+    .tag {
+        padding:4px;
+        margin:3px;    
+        height:auto;
+        background-color:#688ffa;
+        color:white;
+        display:inline-block;
+    }
+</style>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SolvingTask</title>
+</head>
+<body>
+
+    <div style="display:inline-block; width:15%; vertical-align:top; border-right:2px solid gray">
+        <div class="block" style="width:100%;">
+            <div class="block-header">
+                <p class="block-header-text" style="font-size:large">
+                    RATING
+                </p>
+            </div>
+        </div>
+        <div class="block" style="width:100%">
+            <div class="block-header">
+                <p class="block-header-text" style="font-size:large">
+                    TAGS
+                </p>
+            </div>
+            <div id="Tags" style="padding: 2px">
+                <div class="tag">
+                <p style="margin:0px; display:inline-block">DA TAG</p>
+                </div>
+            </div>
+        </div>
+        <div class="block" style="width:100%">
+            <div class="block-header">
+                <p class="block-header-text" style="font-size:large">
+                    solvers AMOUNT
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div style="display:inline-block; width:82%; border-left:2px solid gray"> 
+        <div class="block" style="width:100%">
+            <div class="block-header" style="word-break:normal">
+                <p class="block-header-text">TASK</p>
+            </div>
+            <div id="output" style="position:relative; width:auto; padding:10px">
+                <h1>KEUS</h1>
+                <h2>KEAS</h2>
+            </div>
+            <div class="block-header">
+                <div style="display:inline-block; border-right:2px solid lightgray">
+                    <p class="block-header-text">YOUR answer</p>
+                </div>
+                <div style="display:inline-block; width:50%; height:100%">
+                    <form style="max-width:100%;width:100%;max-height:100%">
+                        <input type="text" style="max-width:100%;width:100%; display:inline-block" placeholder="ENTER your ANSWER">
+                    </form>
+                </div>
+                <button type="button" class="btn block-header-btn" style="padding-bottom:10px; padding-top:10px" id="Answer">
+                    <p class="block-header-text" style="margin:0px; padding:0px">ANSWER</p>
+                </button>
+            </div>
+        </div>
+
+        <div class="block" style="width:100%">
+            <div class="block-header">
+                <p class="block-header-text">COMMENTS</p>
+            </div>
+            <div id="output" style="position:relative; width:auto; padding:10px">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

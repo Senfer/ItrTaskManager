@@ -18,6 +18,32 @@ namespace CourseProject.Models
         }
     }
 
+    public class UserTask
+    {
+        public int UserTaskID {get;set;}
+        public string TaskName { get; set; }
+        public string TaskText { get; set; }
+        public int TaskRating { get; set; }
+        public string TaskCategory { get; set; }
+        public string TaskDifficulty { get; set; }
+        public int SolveCount { get; set; }
+        public string UserID { get; set; }
+    }
+
+    public class Tags
+    {
+        public int TagsID { get; set; }
+        public int TaskID { get; set; }
+        public string TagText { get; set; }
+    }
+
+    public class Answers
+    {
+        public int AnswersID { get; set; }
+        public int TaskID { get; set; }
+        public string AnswerText { get; set; }
+    }
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -29,5 +55,8 @@ namespace CourseProject.Models
         {
             return new ApplicationDbContext();
         }
+        public System.Data.Entity.DbSet<UserTask> Tasks { get; set; }
+        public System.Data.Entity.DbSet<Tags> Tags { get; set; }
+        public System.Data.Entity.DbSet<Answers> Answers { get; set; }
     }
 }

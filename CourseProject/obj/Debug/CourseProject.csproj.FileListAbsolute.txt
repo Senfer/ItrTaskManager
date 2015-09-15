@@ -69,83 +69,13 @@ D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\bin\ru\Microsoft.Owin
 D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\bin\ru\Microsoft.Owin.Security.Google.resources.dll
 D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.csprojResolveAssemblyReference.cache
 D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.dll
 D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.pdb
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\CourseProject.dll.config
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\CourseProject.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\CourseProject.pdb
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Antlr3.Runtime.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\EntityFramework.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\EntityFramework.SqlServer.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Newtonsoft.Json.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Owin.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.Helpers.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.Mvc.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.Optimization.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.Razor.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.WebPages.Deployment.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.WebPages.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.WebPages.Razor.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\WebGrease.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.Helpers.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.Mvc.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.Optimization.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.Razor.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.WebPages.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.WebPages.Deployment.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\System.Web.WebPages.Razor.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Antlr3.Runtime.pdb
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Newtonsoft.Json.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\EntityFramework.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\EntityFramework.SqlServer.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\System.Web.Helpers.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\System.Web.Mvc.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\System.Web.Optimization.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\System.Web.Razor.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\System.Web.WebPages.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\System.Web.WebPages.Deployment.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\System.Web.WebPages.Razor.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\EntityFramework.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\EntityFramework.SqlServer.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.AspNet.Identity.Core.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.AspNet.Identity.Owin.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.Host.SystemWeb.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.Security.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.Security.Facebook.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.Security.Google.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.csprojResolveAssemblyReference.cache
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.pdb
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\Mvc.Mailer.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\SendGrid.SmtpApi.dll
-C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\SendGridMail.dll
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.InitialCreate.resources
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.csproj.GenerateResource.Cache
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.UserTask.resources
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.UserTask2.resources
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.Answers.resources
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.Answers2.resources
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.Answers3.resources
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.csprojResolveAssemblyReference.cache

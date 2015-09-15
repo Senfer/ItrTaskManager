@@ -3,36 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using CourseProject.Mailers;
-using System.Net.Mail;
+using CourseProject.Models;
 
 namespace CourseProject.Controllers
 {
     public class HomeController : Controller
     {
-
-
-        //   Mailer TODO
-        private IUserMailer _userMailer = new UserMailer();
-        public IUserMailer UserMailer
-        {
-            get { return _userMailer; }
-            set { _userMailer = value; }
-        }
-        //
-        public ActionResult SendWelcomeMessage( )
-        {
-            UserMailer.Welcome().Send(); //Send() extension method: using Mvc.Mailer
-            return RedirectToAction( "Index" );
-        }
-        //
-
-
-
-
         public ActionResult Index( )
         {
-            return View();
+            ApplicationDbContext DB = new ApplicationDbContext();
+            System.Collections.Generic.IEnumerable<UserTask> Model = DB.Tasks.AsEnumerable();
+            return View(Model);
         }
 
         public ActionResult About( )
@@ -45,6 +26,12 @@ namespace CourseProject.Controllers
         public ActionResult Contact( )
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult FullTable()
+        {
 
             return View();
         }

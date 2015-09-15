@@ -7,9 +7,9 @@
     <title>@ViewBag.Title – приложение ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    @Scripts.Render("~/bundles/jquery")
 </head>
-<body>
+<body style="background-color:rgba(154, 154, 154, 0.24)">
     <div class="navbar navbar-inverse navbar-fixed-top" style="font-family:'Segoe UI'; font-weight:lighter; color:white; font-size:24px">
         <div class="container">
             <div class="navbar-header">
@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("НАЧАЛЬНАЯ страница", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "backgorund-color:#fcd332; color:white; font-size:24px" })
+                @Html.ActionLink("НАЧАЛЬНАЯ страница", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "backgorund-color:#87ff00; color:white; font-size:24px" })
             </div>
             <div class="navbar-collapse collapse">
                 @Html.Partial("_LoginPartial")
@@ -33,7 +33,7 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+   
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

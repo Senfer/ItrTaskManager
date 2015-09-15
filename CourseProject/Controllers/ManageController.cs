@@ -311,11 +311,64 @@ namespace CourseProject.Controllers
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
 
-        public ActionResult AddingTasks()
+        public ActionResult AddingTasks(System.Collections.Generic.List<string> Answers, System.Collections.Generic.List<string> Tags, string Category, string Difficulty, string HTML, string Name)
         {
+            if (Answers != null && Tags != null && Difficulty !=null && Category != null && HTML != null)
+            {
+                if (Answers.Count > 0 && Tags.Count > 0)
+                {
+                    ApplicationDbContext DB = new ApplicationDbContext();
+                    UserTask NewTask = new UserTask();
+                    NewTask.TaskName = Name;
+                    NewTask.TaskDifficulty = Difficulty;
+                    NewTask.TaskCategory = Category;
+                    NewTask.TaskText = HTML;
+                    NewTask.TaskRating = 1;
+                    NewTask.SolveCount = 0;
+                    foreach (ApplicationUser i in DB.Users.AsEnumerable())
+                    {
+                        if (i.UserName == User.Identity.Name)
+                            NewTask.UserID = i.Id;
+                    }
+                    DB.Tasks.Add(NewTask);
+                    DB.Entry(NewTask).State = System.Data.Entity.EntityState.Added;
+                    int NewTaskID = DB.Tasks.ToList().Last(c => c.UserTaskID > 0).UserTaskID + 1;                    
+                    for (int i = 0; i < Tags.Count; i++)
+                    {
+                        string CurrentTag = Tags[i];
+                        if (DB.Tags.Where(c => c.TagText == CurrentTag).ToList().Count == 0)
+                        {
+                            Tags NewTag = new Tags();
+                            NewTag.TagText = Tags[i];
+                            NewTag.TaskID = NewTaskID;
+                            DB.Tags.Add(NewTag);
+                            DB.Entry(NewTag).State = System.Data.Entity.EntityState.Added;
+                        }
+                    }
+
+                    for (int i = 0; i < Answers.Count; i++)
+                    {
+                        string CurrentAnswer = Answers[i];
+                        if (DB.Answers.Where(c => c.AnswerText == CurrentAnswer).ToList().Count == 0)
+                        {
+                            Answers NewAnswer = new Answers();
+                            NewAnswer.AnswerText = Answers[i];
+                            NewAnswer.TaskID = NewTaskID;
+                            DB.Answers.Add(NewAnswer);
+                            DB.Entry(NewAnswer).State = System.Data.Entity.EntityState.Added;
+                        }
+                    }
+                    DB.SaveChanges();
+                }
+            }
             return View();
         }
 
+
+        public ActionResult SolvingTask()
+        {
+            return View();
+        }
 #region Вспомогательные приложения
         // Используется для защиты от XSRF-атак при добавлении внешних имен входа
         private const string XsrfKey = "XsrfId";
