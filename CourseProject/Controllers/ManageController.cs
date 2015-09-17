@@ -17,6 +17,14 @@ namespace CourseProject.Controllers
         {
         }
 
+        public ActionResult Cabinet()
+        {
+            ApplicationDbContext DB = new ApplicationDbContext();
+            System.Collections.Generic.IEnumerable<UserTask> Model = DB.Tasks.AsEnumerable();
+            return View(Model);
+        }
+
+
         public ManageController(ApplicationUserManager userManager)
         {
             UserManager = userManager;

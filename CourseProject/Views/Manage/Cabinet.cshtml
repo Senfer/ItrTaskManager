@@ -1,0 +1,188 @@
+﻿@model System.Collections.Generic.IEnumerable<CourseProject.Models.UserTask>
+
+@{
+    ViewBag.Title = "Cabinet";
+    Dictionary<string, string> Colors = new Dictionary<string, string>
+    {
+        {"HARD", "#ff6a00"},
+        {"MEDIUM", "#fcd332"},
+        {"EASY", "#87ff00"}
+    };
+}
+
+<style>
+    .block {
+        height: auto;
+        width: 45%;
+        min-width: 400px;
+        background-color: lightgray;
+        margin-top: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+        box-shadow: 30px 30px 25px rgba(4, 4, 4, 0.3);
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+    }
+
+    .block-header {
+        height: auto;
+        width: auto;
+        top: 0px;
+        left: 0px;
+    }
+
+    .block-header-text {
+        font-size: 25px;
+        font-family: 'Segoe UI';
+        font-weight: lighter;
+        color: white;
+        padding: 10px;
+        margin-bottom: 2px;
+
+
+        @*background-color: #7be068;
+        background-color: #7984ff;
+        *@ background-color: #7984ff;
+    }
+
+    .block-table-text {
+        font-size: 30px;
+        font-family: 'Segoe UI';
+        font-weight: lighter;
+        margin: 0px;
+        padding: 5px;
+    }
+
+    .glyphicon.glyphicon-one-fine-dot:before {
+        content: "\25cf";
+        font-size: 35px;
+        margin-bottom: 0px;
+        padding: 0px;
+    }
+
+    .navbar-fixed-top {
+        background-color: #7984ff;
+    }
+
+    a {
+    }
+
+        a:hover {
+        }
+</style>
+
+
+<div>
+    <div style="width:15%; height:100%; display:inline-block; border-right:2px solid gray; vertical-align:top; margin:0px">
+        <div class="block" style="width:100%; margin:0px; margin-top:30px; min-width:initial">
+            <div id="LatestTHeader" class="block-header" style="text-align:left">
+                <p class="block-header-text" style="font-size:large; vertical-align:middle">VIEW ALL TASKS</p>
+            </div>
+        </div>
+        <div id="TagCloud" class="block" style="width:100%;margin:0px; margin-top:30px; height:auto; background-color:white; ; min-width:initial">
+            <div id="TagCloudHeader" class="block-header">
+                <p class="block-header-text" style="font-size:large; vertical-align:middle">TAG CLOUD</p>
+            </div>
+        </div>
+    </div>
+
+<div id="main" class="row" style="text-align: center; width: 80%; display: inline-block; border-left: 2px solid gray; margin: 0px">
+
+    
+    <div id="Cabinet" class=" block">
+        <div id="CabinetHeader" class="block-header" style="text-align: left">
+            <p class="block-header-text">Latest tasks</p>
+        </div>
+        <div style="position: relative; top: 0px; left: 0px; width: auto; padding-left: 2px; padding-right: 2px">
+            <table style="width: 100%">
+                <thead style="background-color: lightgray; color: gray">
+                    <tr>
+                        <td class="block-table-text" style="padding: 0px; width: 50%; padding: 4px" align="left">
+                            NAME
+                        </td>
+                        <td class="block-table-text" style="padding: 0px; width: 20%; padding: 4px" align="right">
+                            RATING
+                        </td>
+                        <td class="block-table-text" style="padding: 0px; width: 20%; padding: 4px" align="right">
+                            CATEGORY
+                        </td>
+                    </tr>
+                </thead>
+                @foreach(CourseProject.Models.UserTask i in Model.OrderBy( c => c.TaskRating > 0 ))
+                {
+                    <tr style="background-color: white; border: 3px solid lightgray; color: @Colors[i.TaskDifficulty]">
+                        <td class="block-table-text" style="padding: 0px; width: 50%; padding: 4px" align="left">
+                            @i.TaskName
+                        </td>
+                        <td class="block-table-text" style="width: 20%; padding: 4px" align="right">
+                            @i.TaskRating
+                        </td>
+                        <td class="block-table-text" style="width: 20%; padding: 4px" align="right">
+                            @i.TaskCategory
+                        </td>
+                        <td style="padding-bottom: 6px; width: 10%;">
+                            <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom: 8px"></span>
+                        </td>
+                    </tr>
+                }
+            </table>
+            <div style="text-align: right">
+                <div style="text-align: right">
+                    @Html.ActionLink( "Show all", "FullTable", "Home", new { }, new { @class = "btn block-table-text", @style = "background-color:#7984ff; color:white; font-size:25px", @align = "right" } )
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="RatedT" class=" block">
+        <div id="RatedTHeader" class="block-header" style="text-align: left">
+                <p class="block-header-text">RATED tasks</p>
+        </div>
+            <div style="position: relative; top: 0px; left: 0px; width: auto; padding-left: 2px; padding-right: 2px">
+                <table style="width: 100%">
+                    <thead style="background-color: lightgray; color: gray">
+                    <tr>
+                        <td class="block-table-text" style="padding: 0px; width: 50%; padding: 4px" align="left">
+                            NAME
+                        </td>
+                        <td class="block-table-text" style="padding: 0px; width: 20%; padding: 4px" align="right">
+                            RATING
+                        </td>
+                        <td class="block-table-text" style="padding: 0px; width: 20%; padding: 4px" align="right">
+                            CATEGORY
+                        </td>
+                    </tr>
+                    </thead>
+                    @foreach (CourseProject.Models.UserTask i in Model.OrderBy(c => c.TaskRating > 0))
+                    {
+                        <tr style="background-color: white; border: 3px solid lightgray; color: @Colors[i.TaskDifficulty]">
+                            <td class="block-table-text" style="padding: 0px; width: 50%; padding: 4px" align="left">
+                                @i.TaskName
+                            </td>
+                            <td class="block-table-text" style="width: 20%; padding: 4px" align="right">
+                                @i.TaskRating
+                            </td>
+                            <td class="block-table-text" style="width: 20%; padding: 4px" align="right">
+                                @i.TaskCategory
+                            </td>
+                            <td style="padding-bottom: 6px; width: 10%;">
+                                <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom: 8px"></span>
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <div style="text-align: right">
+                    <div style="text-align: right">
+                        @Html.ActionLink( "Show all", "FullTable", "Home", new { }, new { @class = "btn block-table-text", @style = "background-color:#7984ff; color:white; font-size:25px", @align = "right" } )
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

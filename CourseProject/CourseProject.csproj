@@ -270,6 +270,7 @@
     <Content Include="Views\Manage\AddingTasks.cshtml" />
     <Content Include="Views\Home\FullTable.cshtml" />
     <Content Include="Views\Manage\SolvingTask.cshtml" />
+    <Content Include="Views\Manage\Cabinet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
