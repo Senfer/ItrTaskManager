@@ -44,7 +44,7 @@
         right:0px; 
         background-color:#7be068; 
         color:white; 
-        vertical-align:top;
+        vertical-align:middle;
         border-radius:0px;
         border:0px;
         border-left:2px solid lightgray;
@@ -131,6 +131,10 @@
         border: 1px solid #ccc;
         border-radius: 0px;
     }
+
+    .navbar-fixed-top {
+        background-color: #7be068;
+    }
 </style>
 
 
@@ -145,7 +149,7 @@
         <div class="block" style="width:100%; height:auto; text-align:center">
             <div class="block-header" style="text-align:left">
                 <p class="block-header-text" style="font-size:large; vertical-align:middle" id="TaskName">TASK name</p>
-                <button type="button" class="btn block-header-btn" style="height:100%; margin-bottom:0px; margin-top:0px; padding:0.5em;font-size:20px; height:40px; width:40px;vertical-align:middle" id="ChangeName">
+                <button type="button" class="btn block-header-btn" style="padding:10px;" id="ChangeName">
                     <span class="glyphicon glyphicon-refresh" aria-hidden="true" style="color:white">
                     </span>
                 </button>
@@ -303,7 +307,6 @@
     $("#ChangeName")[0].onclick = function () {
         var str = $("#NameInput")[0].value;
         $("#TaskName")[0].textContent ='TASK name : ' + str;
-        
     }
 
     $("#Category")[0].onchange = function () {

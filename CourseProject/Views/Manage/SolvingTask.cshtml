@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@model CourseProject.Models.SolveTaskModel
+@{
+    Dictionary<string, string> Colors = new Dictionary<string, string>
+    {
+        {"WRONG", "#ff6a00"},
+        {"RIGHT", "#87ff00"}
+    };
+}
+
+<!DOCTYPE html>
 
 <style>
     .block {
@@ -8,7 +17,7 @@
         margin-top: 30px;
         margin-left: 0px;
         margin-right: 0px;
-        box-shadow: 70px 70px 35px rgba(4, 4, 4, 0.3);
+        box-shadow: 20px 20px 25px rgba(4, 4, 4, 0.3);
         display: inline-block;
         vertical-align: top;
         text-align: left;
@@ -32,18 +41,19 @@
         padding: 9px;
         background-color: #7be068;
         display: inline-block;
-        word-break:normal
+        word-break:break-all;
+        margin:0px
     }
 
     .block-header-btn {
-        font-size: 20px;
+        font-size: 25px;
         display: inline-block;
         padding-top: 15px;
         margin: 0px;
         right: 0px;
         background-color: #7be068;
         color: white;
-        vertical-align: top;
+        vertical-align: middle;
         border-radius: 0px;
         border: 0px;
         border-left: 2px solid lightgray;
@@ -51,7 +61,7 @@
     }
 
     .block-table-text {
-        font-size: medium;
+        font-size: larger;
         font-family: 'Segoe UI';
         font-weight: lighter;
         color: gray;
@@ -85,65 +95,180 @@
 <body>
 
     <div style="display:inline-block; width:15%; vertical-align:top; border-right:2px solid gray">
-        <div class="block" style="width:100%;">
+
+        <div class="block" style="width:100%">
             <div class="block-header">
                 <p class="block-header-text" style="font-size:large">
-                    RATING
+                    AUTHOR
                 </p>
             </div>
+            <div style="text-align:center">
+                <p class="block-table-text" style="width:100%; color:white; background-color:gray">@Model.UserName</p>
+            </div>
         </div>
+
+        <div class="block" style="width:100%">
+            <div class="block-header">
+                <p class="block-header-text" style="font-size:large">
+                    CATEGORY
+                </p>
+            </div>
+            <div style="text-align:center">
+                <p class="block-table-text" style="width:100%; color:white; background-color:gray">@Model.Task.TaskCategory</p>
+            </div>
+        </div>
+
+        
+        <div class="block" style="width:100%">
+            <div class="block-header">
+                <p class="block-header-text" style="font-size:large">
+                    DIFFICULTY
+                </p>
+            </div>
+            <div style="text-align:center">
+                <p class="block-table-text" style="width:100%; color:white; background-color:gray">@Model.Task.TaskDifficulty</p>
+            </div>
+        </div>
+
+        <div class="block" style="width:100%">
+            <div class="block-header">
+                <p class="block-header-text" style="font-size:large">
+                    SOLVE COUNT
+                </p>
+            </div>
+            <div style="text-align:center">
+                <p class="block-table-text" style="width:100%; color:white; background-color:gray">@Model.Task.SolveCount</p>
+            </div>
+        </div>
+
+
         <div class="block" style="width:100%">
             <div class="block-header">
                 <p class="block-header-text" style="font-size:large">
                     TAGS
                 </p>
             </div>
-            <div id="Tags" style="padding: 2px">
-                <div class="tag">
-                <p style="margin:0px; display:inline-block">DA TAG</p>
-                </div>
-            </div>
-        </div>
-        <div class="block" style="width:100%">
-            <div class="block-header">
-                <p class="block-header-text" style="font-size:large">
-                    solvers AMOUNT
-                </p>
+            <div id="Tags" style="padding: 2px; text-align:center">
+                @foreach (var i in Model.Tags)
+                {
+                    <div class="tag">
+                        <p style="margin:0px; display:inline-block">@i.TagText</p>
+                    </div>
+                }
             </div>
         </div>
     </div>
 
-    <div style="display:inline-block; width:82%; border-left:2px solid gray"> 
+    <div style="display:inline-block; width:82%; border-left:2px solid gray">
         <div class="block" style="width:100%">
             <div class="block-header" style="word-break:normal">
-                <p class="block-header-text">TASK</p>
+                <p class="block-header-text">@Model.Task.TaskName</p>
             </div>
             <div id="output" style="position:relative; width:auto; padding:10px">
-                <h1>KEUS</h1>
-                <h2>KEAS</h2>
+                @Model.Task.TaskText
             </div>
-            <div class="block-header">
-                <div style="display:inline-block; border-right:2px solid lightgray">
-                    <p class="block-header-text">YOUR answer</p>
+
+            @if (Model.Solved > -2 && Model.Solved < 1)
+            {
+                <div class="block-header">
+                    <div style="display:inline-block; border-right:2px solid lightgray">
+                        <p class="block-header-text">YOUR answer</p>
+                    </div>
+                    <div style="display:inline-block; width:70%; height:100%; vertical-align:top">
+                        <form class="form-inline" type="post" action="/Manage/SolvingTask">
+                            <div class="form-group">
+                                <input type="text" placeholder="ENTER your ANSWER" id="Answer" name="Answer" />
+
+                                <button type="submit" class="btn block-header-btn" style="padding-bottom:10px; padding-top:10px" id="AnswerButton">
+                                    <p class="block-header-text" style="margin:0px; padding:0px">ANSWER</p>
+                                </button>
+                            </div>
+                            <input type="hidden" id="id" name="id" value="@Model.Task.UserTaskID" />
+                        </form>
+                    </div>
                 </div>
-                <div style="display:inline-block; width:50%; height:100%">
-                    <form style="max-width:100%;width:100%;max-height:100%">
-                        <input type="text" style="max-width:100%;width:100%; display:inline-block" placeholder="ENTER your ANSWER">
-                    </form>
-                </div>
-                <button type="button" class="btn block-header-btn" style="padding-bottom:10px; padding-top:10px" id="Answer">
-                    <p class="block-header-text" style="margin:0px; padding:0px">ANSWER</p>
-                </button>
-            </div>
+
+            }
+            else
+            {
+                if (Model.Solved == -2)
+                {
+                    <div class="block-header">
+                        <div style="display:inline-block; border-right:2px solid lightgray">
+                            <p class="block-header-text">YOU CREATED THIS TASK</p>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    if (Model.Solved == 1)
+                    {
+                            <div class="block-header" style="word-break:normal; background-color:#8fff00">
+                                <p class="block-header-text" style="background-color:#8fff00">TASK SOLVED</p>
+                            </div>
+                    }
+                    else
+                    {
+                        <div class="block-header">
+                            <div style="display:inline-block; border-right:2px solid lightgray">
+                                <p class="block-header-text">YOU ALREADY SOLVED THIS</p>
+                            </div>
+                        </div>
+                    }
+
+                }
+            }
+
         </div>
+
+        @if (Model.Solved == 0)
+        {
+            <div class="block" style="width:100%">
+                <div class="block-header" style="word-break:normal; background-color: #ff6a00">
+                    <p class="block-header-text" style="background-color: #ff6a00">ANSWER IS WRONG</p>
+                </div>
+            </div>
+        }
 
         <div class="block" style="width:100%">
             <div class="block-header">
-                <p class="block-header-text">COMMENTS</p>
+                <p class="block-header-text" style="display:inline-block">COMMENTS</p>
+                <button type="button" class="btn block-header-btn" style="height:100%; margin-bottom:0px; margin-top:0px; padding:10px; vertical-align:top" id="AddComment">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:white">
+                    </span>
+                </button>
             </div>
+            <form action="/Manage/AddComment" id="CommentSubmit">
             <div id="output" style="position:relative; width:auto; padding:10px">
+                <textarea id="Comment" name="Comment" form="CommentSubmit" rows="5" class="form-control" style="width:100%; max-width:100%" placeholder="enter COMMENTS there"></textarea>
             </div>
+            <input type="hidden" id="id" name="id" value="@Model.Task.UserTaskID">
+            </form>
+            @foreach (var i in Model.Comments)
+            {
+                <div style="margin-bottom:10px">
+                    <p>@i.CommentText</p>
+                </div>
+            }
         </div>
     </div>
+
 </body>
 </html>
+
+<script src="~/Scripts/showdown.js"></script>
+<script>
+    $(document).ready(function () {
+        var str = $("#output")[0].textContent;
+        var converter = new showdown.Converter();
+        var html = converter.makeHtml(str);
+        $("#output")[0].innerHTML = html;
+    })
+
+
+
+    $("#AddComment")[0].onclick = function () {
+        if ($("#Comment")[0].value != "")
+            $("#CommentSubmit")[0].submit();
+    }
+</script>

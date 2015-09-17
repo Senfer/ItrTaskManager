@@ -44,6 +44,21 @@ namespace CourseProject.Models
         public string AnswerText { get; set; }
     }
 
+    public class Solves
+    {
+        public int SolvesID { get; set; }
+        public int TaskID { get; set; }
+        public string UserID { get; set; }
+    }
+
+    public class Comments
+    {
+        public int CommentsID { get; set; }
+        public int TaskID { get; set; }
+        public string UserID { get; set; }
+        public string CommentText { get; set; }
+    }
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -58,5 +73,7 @@ namespace CourseProject.Models
         public System.Data.Entity.DbSet<UserTask> Tasks { get; set; }
         public System.Data.Entity.DbSet<Tags> Tags { get; set; }
         public System.Data.Entity.DbSet<Answers> Answers { get; set; }
+        public System.Data.Entity.DbSet<Solves> Solves { get; set; }
+        public System.Data.Entity.DbSet<Comments> Comments { get; set; }
     }
 }

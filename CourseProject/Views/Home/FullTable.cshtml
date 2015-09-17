@@ -1,4 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@model System.Collections.Generic.IEnumerable<CourseProject.Models.UserTask>
+
+@{
+    ViewBag.Title = "Home Page";
+    Dictionary<string, string> Colors = new Dictionary<string, string>
+    {
+        {"HARD", "#ff6a00"},
+        {"MEDIUM", "#fcd332"},
+        {"EASY", "#87ff00"}
+    };
+}
+
+<!DOCTYPE html>
 
 
 <style>
@@ -43,7 +55,7 @@
         font-size: 30px;
         font-family: 'Segoe UI';
         font-weight: lighter;
-        color: gray;
+        
         margin: 0px;
         padding: 5px;
     }
@@ -68,6 +80,10 @@
         font-size: 35px;
         margin-bottom: 0px;
         padding: 0px;
+    }
+
+    .navbar-fixed-top {
+        background-color: #fcd332;
     }
 </style>
 <html>
@@ -153,192 +169,24 @@
                             </td>
                         </tr>
                     </thead>
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class ="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
-                    <tr style="background-color:white; border:3px solid lightgray">
-                        <td class="block-table-text" style="padding:0px; width:50%; color:#87ff00; padding:4px" align="left">
-                            TASK 1
-                        </td>
-                        <td class ="block-table-text" style="padding:0px; width:10%; color:#87ff00; padding:4px" align="left">
-                            4.5
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:25%; padding:4px" align="right">
-                            C#
-                        </td>
-                        <td class="block-table-text" style="color:#87ff00; width:15%; padding:4px" align="right">
-                            HARD
-                        </td>
-                    </tr>
+                    @foreach (CourseProject.Models.UserTask i in Model.Reverse())
+                    {
+                        <tr style="background-color:white; border:3px solid lightgray; color:@Colors[i.TaskDifficulty]">
+                            <td class="block-table-text" style="padding:0px; width:50%; padding:4px">
+                                @i.TaskName
+                            </td>
+                            <td class="block-table-text" style="padding:0px; width:10%; padding:4px">
+                                @i.TaskRating
+                            </td>
+                            <td class="block-table-text" style="width:25%; padding:4px">
+                                @i.TaskCategory
+                            </td>
+                            <td class="block-table-text" style="width:15%; padding:4px">
+                                @i.TaskDifficulty
+                            </td>
+                        </tr>
+                    }
+                    
                 </table>
             </div>
             <div style="text-align:right">

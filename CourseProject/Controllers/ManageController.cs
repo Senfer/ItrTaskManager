@@ -365,9 +365,58 @@ namespace CourseProject.Controllers
         }
 
 
-        public ActionResult SolvingTask()
+        public ActionResult SolvingTask(int id, string Answer)
         {
-            return View();
+            SolveTaskModel Model = new SolveTaskModel();
+            ApplicationDbContext DB = new ApplicationDbContext();
+            Model.Task = DB.Tasks.First(c => c.UserTaskID == id);
+            Model.Answers = DB.Answers.Where(c => c.TaskID == id).AsEnumerable();
+            Model.Tags = DB.Tags.Where(c => c.TaskID == id).AsEnumerable();
+            Model.UserName = DB.Users.First(c => c.Id == Model.Task.UserID).UserName;
+            Model.Comments = DB.Comments.Where(c => c.TaskID == id).AsEnumerable();
+            string CurrentUserID = DB.Users.First(c => c.UserName == User.Identity.Name).Id;
+            Model.Solved = -1;
+            if (DB.Tasks.Any(c => c.UserID == CurrentUserID && c.UserTaskID == id) == true)
+                Model.Solved = -2;
+            else
+            {
+                if (DB.Solves.Any(c => c.UserID == CurrentUserID && c.TaskID == id) == true)
+                {
+                    Model.Solved = -3;
+                }
+                else
+                {
+                    if (Answer != "" && Answer != null)
+                    {
+                        if (DB.Answers.Where(c => (c.TaskID == id) && (c.AnswerText == Answer)).ToList().Count != 0)
+                        {
+                            Model.Solved = 1;
+                            Solves NewSolve = new Solves();
+                            NewSolve.TaskID = id;
+                            NewSolve.UserID = CurrentUserID;
+                            DB.Solves.Add(NewSolve);
+                            DB.Entry(NewSolve).State = System.Data.Entity.EntityState.Added;
+                            DB.SaveChanges();
+                        }
+                        else
+                            Model.Solved = 0;
+                    }
+                }
+
+            }
+            return View(Model);
+        }
+
+        public ActionResult AddComment(string Comment, int id)
+        {
+            ApplicationDbContext DB = new ApplicationDbContext();
+            Comments NewComment = new Comments();
+            NewComment.CommentText = Comment;
+            NewComment.TaskID = id;
+            NewComment.UserID = DB.Users.First(c => c.UserName == User.Identity.Name).Id;
+            DB.Entry(NewComment).State = System.Data.Entity.EntityState.Added;
+            DB.SaveChanges();
+            return RedirectToAction("SolvingTask", new { id = id });
         }
 #region Вспомогательные приложения
         // Используется для защиты от XSRF-атак при добавлении внешних имен входа

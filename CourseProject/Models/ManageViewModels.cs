@@ -83,4 +83,14 @@ namespace CourseProject.Models
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
+
+    public class SolveTaskModel
+    {
+        public UserTask Task { get; set; }
+        public System.Collections.Generic.IEnumerable<Tags> Tags { get; set; }
+        public System.Collections.Generic.IEnumerable<Answers> Answers { get; set; }
+        public System.Collections.Generic.IEnumerable<Comments> Comments { get; set; }
+        public string UserName { get; set; }
+        public int Solved { get; set; }
+    }
 }
