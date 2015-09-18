@@ -49,6 +49,9 @@ namespace CourseProject.Models
     public class LoginViewModel
     {
         [Required]
+        [Display( Name = "User name" )]
+        public string UserName { get; set; } 
+        [Required]
         [Display(Name = "Адрес электронной почты")]
         [EmailAddress]
         public string Email { get; set; }
