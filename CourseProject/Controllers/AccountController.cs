@@ -183,7 +183,8 @@ namespace CourseProject.Controllers
                         Url.Action( "ConfirmEmail", "Account", new { Token = user.Id, Email = user.Email }, Request.Url.Scheme ) );
                     m.IsBodyHtml = true;
                     // адрес smtp-сервера, с которого мы и будем отправлять письмо
-                    SmtpClient smtp = new System.Net.Mail.SmtpClient( "smtp.google.com", 587 );
+                    SmtpClient smtp = new System.Net.Mail.SmtpClient( "smtp.google.com", 587 );   // если будет ругаться на порт, то... менять 587 на 25. это по дефолту, но  вроде так должно. хз
+
                     // логин и пароль
                     smtp.Credentials = new System.Net.NetworkCredential( "kakaby13", "kakaby13" );
                     smtp.Send( m );
