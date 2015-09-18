@@ -1,5 +1,7 @@
 ﻿<!DOCTYPE html>
-
+@{
+    ViewBag.Title = "ADDING tasks";
+}
 <style>
     .block {
         height: 700px;
@@ -7,7 +9,7 @@
         margin-top: 30px;
         margin-left:0px;
         margin-right:0px;
-        box-shadow: 70px 70px 35px rgba(4, 4, 4, 0.3);
+        box-shadow: 30px 30px 25px rgba(4, 4, 4, 0.3);
         display: inline-block;
         vertical-align: top;
         text-align: left;
@@ -134,6 +136,7 @@
 
     .navbar-fixed-top {
         background-color: #7be068;
+        box-shadow: 0px 10px 25px rgba(4, 4, 4, 0.3);
     }
 </style>
 
@@ -449,12 +452,17 @@
     function FileAddSucceed() {
         ShowAlert("Successfully loaded URL", 'success');
         $("#dropZone")[0].textContent = "Loading..."
+        var str = "";
         $("#AddFile").unsigned_cloudinary_upload("pbzdjut0",
         { cloud_name: 'dbq2uhuex', tags: 'browser_uploads' }).bind('cloudinarydone', function () {
-            var str = $("input[name='image_id']")[0].value;
-            $("#input")[0].textContent += "![AltText](http://res.cloudinary.com/dbq2uhuex/" + str + ")";
-            Convert();
-            $("#dropZone")[0].textContent = "You can upload files. Hit the button or drag and drop them here";
+            if (str == "") {
+                str = $("input[name='image_id']")[0].value;
+                $('#input').val($('#input').val() + "![AltText](http://res.cloudinary.com/dbq2uhuex/" + str + ")");
+                Convert();
+                $("#dropZone")[0].textContent = "You can upload files. Hit the button or drag and drop them here";
+                $("#AddFile")[0].files = "";
+                $("#AddFile").value = "";
+            }
         })
     }
 
