@@ -170,7 +170,7 @@ namespace CourseProject.Controllers
                 if(result.Succeeded)
                 {
                     // наш email с заголовком письма
-                    MailAddress from = new MailAddress( "somemail@yandex.ru", "Web Registration" );
+                    MailAddress from = new MailAddress( "kakaby13@gmail.com", "alloha!" );
                     // кому отправляем
                     MailAddress to = new MailAddress( user.Email );
                     // создаем объект сообщения
@@ -183,9 +183,9 @@ namespace CourseProject.Controllers
                         Url.Action( "ConfirmEmail", "Account", new { Token = user.Id, Email = user.Email }, Request.Url.Scheme ) );
                     m.IsBodyHtml = true;
                     // адрес smtp-сервера, с которого мы и будем отправлять письмо
-                    SmtpClient smtp = new System.Net.Mail.SmtpClient( "smtp.yandex.ru", 25 );
+                    SmtpClient smtp = new System.Net.Mail.SmtpClient( "smtp.google.com", 587 );
                     // логин и пароль
-                    smtp.Credentials = new System.Net.NetworkCredential( "somemail@yandex.ru", "password" );
+                    smtp.Credentials = new System.Net.NetworkCredential( "kakaby13", "hui" );
                     smtp.Send( m );
                     return RedirectToAction( "Confirm", "Account", new { Email = user.Email } );
                 }
