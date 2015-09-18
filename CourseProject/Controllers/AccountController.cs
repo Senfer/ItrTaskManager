@@ -185,7 +185,7 @@ namespace CourseProject.Controllers
                     // адрес smtp-сервера, с которого мы и будем отправлять письмо
                     SmtpClient smtp = new System.Net.Mail.SmtpClient( "smtp.google.com", 587 );
                     // логин и пароль
-                    smtp.Credentials = new System.Net.NetworkCredential( "kakaby13", "hui" );
+                    smtp.Credentials = new System.Net.NetworkCredential( "kakaby13", "kakaby13" );
                     smtp.Send( m );
                     return RedirectToAction( "Confirm", "Account", new { Email = user.Email } );
                 }
