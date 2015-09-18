@@ -75,91 +75,46 @@
 
 <div>
     <div style="width:15%; height:100%; display:inline-block; border-right:2px solid gray; vertical-align:top; margin:0px">
-        <div class="block" style="width:100%; margin:0px; margin-top:30px; min-width:initial">
-            <div id="LatestTHeader" class="block-header" style="text-align:left">
-                <p class="block-header-text" style="font-size:large; vertical-align:middle">VIEW ALL TASKS</p>
+        <div id="ShowAllTasks" class="block" style="width: 100%; margin: 0px; margin-top: 30px; min-width: initial">
+            <div id="ShowAllTasksHeader" class="block-header" style="text-align: left">
+                @Html.ActionLink("Show all", "FullTable", "Home", new {}, new {@class = "btn block-table-text", @style = "background-color:#7984ff; color:white; font-size:25px", @align = "middle"})
+            </div> <!--но тут просто немного получается элемент дохукнопок =( -->
+        </div>
+
+        <div id="AddNewTask" class="block" style="width: 100%; margin: 0px; margin-top: 30px; min-width: initial">
+            <div id="AddNewTaskHeader" class="block-header" style="text-align: left">
+                <p class="block-header-text" style="font-size: large; vertical-align: middle">Add new task</p>
             </div>
         </div>
-        <div id="TagCloud" class="block" style="width:100%;margin:0px; margin-top:30px; height:auto; background-color:white; ; min-width:initial">
-            <div id="TagCloudHeader" class="block-header">
-                <p class="block-header-text" style="font-size:large; vertical-align:middle">TAG CLOUD</p>
-            </div>
-        </div>
-    </div>
 
-<div id="main" class="row" style="text-align: center; width: 80%; display: inline-block; border-left: 2px solid gray; margin: 0px">
-
-    
-    <div id="Cabinet" class=" block">
-        <div id="CabinetHeader" class="block-header" style="text-align: left">
-            <p class="block-header-text">Latest tasks</p>
-        </div>
-        <div style="position: relative; top: 0px; left: 0px; width: auto; padding-left: 2px; padding-right: 2px">
-            <table style="width: 100%">
-                <thead style="background-color: lightgray; color: gray">
-                    <tr>
-                        <td class="block-table-text" style="padding: 0px; width: 50%; padding: 4px" align="left">
-                            NAME
-                        </td>
-                        <td class="block-table-text" style="padding: 0px; width: 20%; padding: 4px" align="right">
-                            RATING
-                        </td>
-                        <td class="block-table-text" style="padding: 0px; width: 20%; padding: 4px" align="right">
-                            CATEGORY
-                        </td>
-                    </tr>
-                </thead>
-                @foreach(CourseProject.Models.UserTask i in Model.OrderBy( c => c.TaskRating > 0 ))
-                {
-                    <tr style="background-color: white; border: 3px solid lightgray; color: @Colors[i.TaskDifficulty]">
-                        <td class="block-table-text" style="padding: 0px; width: 50%; padding: 4px" align="left">
-                            @i.TaskName
-                        </td>
-                        <td class="block-table-text" style="width: 20%; padding: 4px" align="right">
-                            @i.TaskRating
-                        </td>
-                        <td class="block-table-text" style="width: 20%; padding: 4px" align="right">
-                            @i.TaskCategory
-                        </td>
-                        <td style="padding-bottom: 6px; width: 10%;">
-                            <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom: 8px"></span>
-                        </td>
-                    </tr>
-                }
-            </table>
-            <div style="text-align: right">
-                <div style="text-align: right">
-                    @Html.ActionLink( "Show all", "FullTable", "Home", new { }, new { @class = "btn block-table-text", @style = "background-color:#7984ff; color:white; font-size:25px", @align = "right" } )
-                </div>
+        <div id="ChangeNickname" class="block" style="width:100%;margin:0px; margin-top:30px; height:auto; background-color:white; ; min-width:initial">
+            <div id="ChangeNameHeader" class="block-header">
+                <p class="block-header-text" style="font-size:large; vertical-align:middle">Change Nickname</p>
             </div>
         </div>
     </div>
 
-
-
-
-
-
-    <div id="RatedT" class=" block">
-        <div id="RatedTHeader" class="block-header" style="text-align: left">
-                <p class="block-header-text">RATED tasks</p>
-        </div>
+    <div id="main" class="row" style="text-align: center; width: 80%; display: inline-block; border-left: 2px solid gray; margin: 0px">
+        <div id="LatestT" class=" block">
+            <div id="LatestTHeader" class="block-header" style="text-align: left">
+                <p class="block-header-text">Latest tasks</p>
+            </div>
             <div style="position: relative; top: 0px; left: 0px; width: auto; padding-left: 2px; padding-right: 2px">
                 <table style="width: 100%">
                     <thead style="background-color: lightgray; color: gray">
-                    <tr>
-                        <td class="block-table-text" style="padding: 0px; width: 50%; padding: 4px" align="left">
-                            NAME
-                        </td>
-                        <td class="block-table-text" style="padding: 0px; width: 20%; padding: 4px" align="right">
-                            RATING
-                        </td>
-                        <td class="block-table-text" style="padding: 0px; width: 20%; padding: 4px" align="right">
-                            CATEGORY
-                        </td>
-                    </tr>
+                        <tr>
+                            <td class="block-table-text" style="padding: 0px; width: 50%; padding: 4px" align="left">
+                                NAME
+                            </td>
+                            <td class="block-table-text" style="padding: 0px; width: 20%; padding: 4px" align="right">
+                                RATING
+                            </td>
+                            <td class="block-table-text" style="padding: 0px; width: 20%; padding: 4px" align="right">
+                                CATEGORY
+                            </td>
+                        </tr>
                     </thead>
-                    @foreach (CourseProject.Models.UserTask i in Model.OrderBy(c => c.TaskRating > 0))
+                    @foreach(CourseProject.Models.UserTask i in Model.OrderBy( c => c.TaskRating > 0 ))
                     {
                         <tr style="background-color: white; border: 3px solid lightgray; color: @Colors[i.TaskDifficulty]">
                             <td class="block-table-text" style="padding: 0px; width: 50%; padding: 4px" align="left">
@@ -182,6 +137,29 @@
                         @Html.ActionLink( "Show all", "FullTable", "Home", new { }, new { @class = "btn block-table-text", @style = "background-color:#7984ff; color:white; font-size:25px", @align = "right" } )
                     </div>
                 </div>
+            </div>
+        </div>
+
+    <div id="UserStats" class=" block">
+        <div id="UserStatsHeader" class="block-header" style="text-align: left">
+                <p class="block-header-text">User stats</p>
+        </div>
+            <div style="position: relative; top: 0px; left: 0px; width: auto; padding-left: 2px; padding-right: 2px">
+                <table style="width: 100%">
+                    <tr> 
+                        <td>
+                            @foreach (CourseProject.Models.UserTask i in Model.OrderBy(c => c.TaskRating > 0))
+                            {
+                            }
+                        </td>
+                        <td>
+                            @Model.Count()
+                        </td>
+                    </tr>
+
+
+
+                </table>
             </div>
         </div>
     </div>
