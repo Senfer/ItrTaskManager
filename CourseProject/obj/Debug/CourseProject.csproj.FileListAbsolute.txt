@@ -340,3 +340,4 @@ C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.Securit
 C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.pdb
+C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.Migrations.temp.resources
