@@ -21,9 +21,10 @@ namespace CourseProject.Controllers
             Model.LatestTasks = Reversed.Take(Length);
 
             Length = 10;
-            if (DB.Tasks.OrderByDescending(c => c.TaskRating / c.TaskRatingCount).ToList().Count < 10)
-                Length = DB.Tasks.OrderByDescending(c => c.TaskRating / c.TaskRatingCount).ToList().Count;
-            Model.RatedTasks = DB.Tasks.OrderByDescending(c => c.TaskRating / c.TaskRatingCount).Take(Length);
+            System.Collections.Generic.List<UserTask> Rated = DB.Tasks.Where(c => c.TaskRatingCount > 0).ToList();
+            if (Rated.OrderByDescending(c =>c.TaskRating / c.TaskRatingCount).ToList().Count < 10)
+                Length = Rated.OrderByDescending(c => c.TaskRating / c.TaskRatingCount).ToList().Count;
+            Model.RatedTasks = Rated.OrderByDescending(c => c.TaskRating / c.TaskRatingCount).Take(Length);
          
 
             Length = 10;
@@ -33,11 +34,11 @@ namespace CourseProject.Controllers
 
 
             Length = 10;
-            System.Collections.Generic.IEnumerable<ApplicationUser> Rated = DB.Users.Where(c => c.Rating > 0);
-            if (Rated.OrderByDescending(c => c.Rating).ToList().Count < 10)
-                Length = Rated.OrderByDescending(c => c.Rating).ToList().Count;
+            System.Collections.Generic.IEnumerable<ApplicationUser> RatedUsers = DB.Users.Where(c => c.Rating > 0);
+            if (RatedUsers.OrderByDescending(c => c.Rating).ToList().Count < 10)
+                Length = RatedUsers.OrderByDescending(c => c.Rating).ToList().Count;
 
-            Model.RatedUsers = Rated.OrderByDescending(c => c.Rating).Take(Length);
+            Model.RatedUsers = RatedUsers.OrderByDescending(c => c.Rating).Take(Length);
            
             return View(Model);
         }

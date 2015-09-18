@@ -90,7 +90,9 @@ namespace CourseProject.Models
         public System.Collections.Generic.IEnumerable<Tags> Tags { get; set; }
         public System.Collections.Generic.IEnumerable<Answers> Answers { get; set; }
         public System.Collections.Generic.IEnumerable<Comments> Comments { get; set; }
+        public int Rating { get; set; }
         public string UserName { get; set; }
         public int Solved { get; set; }
+
     }
 }

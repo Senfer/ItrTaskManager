@@ -9,8 +9,7 @@ namespace CourseProject.Models
     // Чтобы добавить данные профиля для пользователя, можно добавить дополнительные свойства в класс ApplicationUser. Дополнительные сведения см. по адресу: http://go.microsoft.com/fwlink/?LinkID=317594.
     public class ApplicationUser : IdentityUser
     {
-
-        public string Email { get; set; }
+		public string Email { get; set; }
         public bool ConfirmedEmail { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -65,6 +64,14 @@ namespace CourseProject.Models
         public string CommentText { get; set; }
     }
 
+    public class Ratings
+    {
+        public int RatingsID { get; set; }
+        public int TaskID { get; set; }
+        public string UserID { get; set; }
+        public int RatingValue { get; set; }
+    }
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -81,5 +88,6 @@ namespace CourseProject.Models
         public System.Data.Entity.DbSet<Answers> Answers { get; set; }
         public System.Data.Entity.DbSet<Solves> Solves { get; set; }
         public System.Data.Entity.DbSet<Comments> Comments { get; set; }
+        public System.Data.Entity.DbSet<Ratings> Ratings { get; set; }
     }
 }

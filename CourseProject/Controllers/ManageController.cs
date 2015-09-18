@@ -17,14 +17,6 @@ namespace CourseProject.Controllers
         {
         }
 
-        public ActionResult Cabinet()
-        {
-            ApplicationDbContext DB = new ApplicationDbContext();
-            System.Collections.Generic.IEnumerable<UserTask> Model = DB.Tasks.AsEnumerable();
-            return View( Model );
-        }
-
-
         public ManageController(ApplicationUserManager userManager)
         {
             UserManager = userManager;
@@ -69,12 +61,12 @@ namespace CourseProject.Controllers
 
         //
         // GET: /Manage/RemoveLogin
-        /*public ActionResult RemoveLogin()
+        public ActionResult RemoveLogin()
         {
             var linkedAccounts = UserManager.GetLogins(User.Identity.GetUserId());
             ViewBag.ShowRemoveButton = HasPassword() || linkedAccounts.Count > 1;
             return View(linkedAccounts);
-        } */
+        }
 
         //
         // POST: /Manage/RemoveLogin
@@ -331,7 +323,7 @@ namespace CourseProject.Controllers
                     NewTask.TaskDifficulty = Difficulty;
                     NewTask.TaskCategory = Category;
                     NewTask.TaskText = HTML;
-                    NewTask.TaskRating = 1;
+                    NewTask.TaskRating = 0;
                     NewTask.SolveCount = 0;
                     foreach (ApplicationUser i in DB.Users.AsEnumerable())
                     {
@@ -382,7 +374,12 @@ namespace CourseProject.Controllers
             Model.Tags = DB.Tags.Where(c => c.TaskID == id).AsEnumerable();
             Model.UserName = DB.Users.First(c => c.Id == Model.Task.UserID).UserName;
             Model.Comments = DB.Comments.Where(c => c.TaskID == id).AsEnumerable();
+            
             string CurrentUserID = DB.Users.First(c => c.UserName == User.Identity.Name).Id;
+            Model.Rating = 0;
+            if (DB.Ratings.Any(c => c.UserID == CurrentUserID && c.TaskID == id)==true)
+                Model.Rating = DB.Ratings.First(c => c.UserID == CurrentUserID && c.TaskID == id).RatingValue;
+            
             Model.Solved = -1;
             if (DB.Tasks.Any(c => c.UserID == CurrentUserID && c.UserTaskID == id) == true)
                 Model.Solved = -2;
@@ -430,16 +427,21 @@ namespace CourseProject.Controllers
 
         public ActionResult Vote(int Rating, int id)
         {
-            HttpCookie aCookie = new HttpCookie("RatingCookie"+id.ToString());
-            aCookie.Value = Rating.ToString();
-            Response.Cookies.Add(aCookie);
             ApplicationDbContext DB = new ApplicationDbContext();
-            DB.Tasks.First(c => c.UserTaskID == id).TaskRating += Rating;
+            float OldRating = DB.Tasks.First(c => c.UserTaskID == id).TaskRating;
+            DB.Tasks.First(c => c.UserTaskID == id).TaskRating = OldRating + Rating;
             DB.Tasks.First(c => c.UserTaskID == id).TaskRatingCount++;
             string TaskCreatorID = DB.Tasks.First(c => c.UserTaskID == id).UserID;
+            Ratings NewRating = new Ratings();
+            NewRating.RatingValue = Rating;
+            NewRating.TaskID = id;
+            string CurrentUserID = DB.Users.First(c => c.UserName == User.Identity.Name).Id;
+            NewRating.UserID = CurrentUserID;
+            DB.Entry(NewRating).State = System.Data.Entity.EntityState.Added;
+
             float UserRating = 0;
             foreach (var i in DB.Tasks.Where(c => c.UserID == TaskCreatorID))
-                UserRating += i.TaskRating;
+                UserRating += (i.TaskRating/i.TaskRatingCount);
             int RatingCount = DB.Tasks.Count(c => c.UserID == TaskCreatorID);
             UserRating = UserRating / RatingCount;
             DB.Users.First(c => c.Id == TaskCreatorID).Rating = UserRating;

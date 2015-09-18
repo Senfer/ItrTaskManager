@@ -153,6 +153,7 @@
                         {
                             Rating = Rating.Substring(0, 3);
                         }
+                      
                         <tr style="background-color:white; border:3px solid lightgray; color:@Colors[i.TaskDifficulty]">
                             <td class="block-table-text" style="padding:0px;padding:4px; width:50%" align="left">
                                @Html.ActionLink(@i.TaskName, "SolvingTask", "Manage", new { id = i.UserTaskID }, new { @style = "width:100%; height:100%; padding:0px; text-align:left", @class = "block-table-text", })
@@ -193,6 +194,7 @@
                     </thead>
                     @foreach (var i in Model.UnsolvedTasks)
                     {
+                        
                         <tr style="background-color:white; border:3px solid lightgray;color:@Colors[i.TaskDifficulty]">
                             <td class="block-table-text" style="padding:0px; width:60%; padding:4px" align="left">
                                 @i.TaskName
@@ -229,14 +231,20 @@
                         </tr>
                     </thead>
                     @foreach (var i in Model.RatedUsers)
-                    {
+                    { 
+                        string Rating = i.Rating.ToString();
+                        if (Rating.Length > 3)
+                        {
+                            Rating = Rating.Substring(0, 3);
+                        }
+                       
                     <tr style="background-color:white; border:3px solid lightgray">
 
                         <td class="block-table-text" style="padding:4px; color:gray;" align="left">
                             @i.UserName
                         </td>
                         <td class="block-table-text" style="color:gray; padding:4px" align="right">
-                            @i.Rating
+                            @Rating
                         </td>
                     </tr>
                     }
