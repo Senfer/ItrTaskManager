@@ -163,7 +163,7 @@ namespace CourseProject.Controllers
         {
             if(ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = new ApplicationUser() { UserName = model.UserName };   //вот тут оно видит модель, а там нет=(
                 user.Email = model.Email;
                 user.ConfirmedEmail = false;
                 var result = await UserManager.CreateAsync( user, model.Password );
