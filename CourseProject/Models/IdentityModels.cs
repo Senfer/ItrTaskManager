@@ -16,6 +16,8 @@ namespace CourseProject.Models
             // Здесь добавьте утверждения пользователя
             return userIdentity;
         }
+        public float Rating { get; set; }
+        public string NickName { get; set; }
     }
 
     public class UserTask
@@ -23,7 +25,8 @@ namespace CourseProject.Models
         public int UserTaskID {get;set;}
         public string TaskName { get; set; }
         public string TaskText { get; set; }
-        public int TaskRating { get; set; }
+        public float TaskRating { get; set; }
+        public int TaskRatingCount { get; set; }
         public string TaskCategory { get; set; }
         public string TaskDifficulty { get; set; }
         public int SolveCount { get; set; }

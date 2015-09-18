@@ -196,6 +196,22 @@
     <Compile Include="Migrations\201509171444245_Comments.Designer.cs">
       <DependentUpon>201509171444245_Comments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509172340506_Users1.cs" />
+    <Compile Include="Migrations\201509172340506_Users1.Designer.cs">
+      <DependentUpon>201509172340506_Users1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509180257415_Users11.cs" />
+    <Compile Include="Migrations\201509180257415_Users11.Designer.cs">
+      <DependentUpon>201509180257415_Users11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509181345296_Float.cs" />
+    <Compile Include="Migrations\201509181345296_Float.Designer.cs">
+      <DependentUpon>201509181345296_Float.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509181351136_Float2.cs" />
+    <Compile Include="Migrations\201509181351136_Float2.Designer.cs">
+      <DependentUpon>201509181351136_Float2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HomeViewModelscs.cs" />
@@ -210,6 +226,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-rating-input.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -305,6 +322,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509171444245_Comments.resx">
       <DependentUpon>201509171444245_Comments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509172340506_Users1.resx">
+      <DependentUpon>201509172340506_Users1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509180257415_Users11.resx">
+      <DependentUpon>201509180257415_Users11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509181345296_Float.resx">
+      <DependentUpon>201509181345296_Float.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509181351136_Float2.resx">
+      <DependentUpon>201509181351136_Float2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

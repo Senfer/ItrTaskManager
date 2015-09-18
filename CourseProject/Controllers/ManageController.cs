@@ -395,6 +395,7 @@ namespace CourseProject.Controllers
                             NewSolve.TaskID = id;
                             NewSolve.UserID = CurrentUserID;
                             DB.Solves.Add(NewSolve);
+                            DB.Tasks.First(c => c.UserTaskID == id).SolveCount++;
                             DB.Entry(NewSolve).State = System.Data.Entity.EntityState.Added;
                             DB.SaveChanges();
                         }
@@ -415,6 +416,25 @@ namespace CourseProject.Controllers
             NewComment.TaskID = id;
             NewComment.UserID = DB.Users.First(c => c.UserName == User.Identity.Name).Id;
             DB.Entry(NewComment).State = System.Data.Entity.EntityState.Added;
+            DB.SaveChanges();
+            return RedirectToAction("SolvingTask", new { id = id });
+        }
+
+        public ActionResult Vote(int Rating, int id)
+        {
+            HttpCookie aCookie = new HttpCookie("RatingCookie"+id.ToString());
+            aCookie.Value = Rating.ToString();
+            Response.Cookies.Add(aCookie);
+            ApplicationDbContext DB = new ApplicationDbContext();
+            DB.Tasks.First(c => c.UserTaskID == id).TaskRating += Rating;
+            DB.Tasks.First(c => c.UserTaskID == id).TaskRatingCount++;
+            string TaskCreatorID = DB.Tasks.First(c => c.UserTaskID == id).UserID;
+            float UserRating = 0;
+            foreach (var i in DB.Tasks.Where(c => c.UserID == TaskCreatorID))
+                UserRating += i.TaskRating;
+            int RatingCount = DB.Tasks.Count(c => c.UserID == TaskCreatorID);
+            UserRating = UserRating / RatingCount;
+            DB.Users.First(c => c.Id == TaskCreatorID).Rating = UserRating;
             DB.SaveChanges();
             return RedirectToAction("SolvingTask", new { id = id });
         }

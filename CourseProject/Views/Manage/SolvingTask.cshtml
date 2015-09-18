@@ -84,6 +84,11 @@
         color:white;
         display:inline-block;
     }
+
+    .navbar-fixed-top {
+        background-color: #7be068;
+        box-shadow: 0px 10px 25px rgba(4, 4, 4, 0.3);
+    }
 </style>
 
 
@@ -94,7 +99,7 @@
 </head>
 <body>
 
-    <div style="display:inline-block; width:15%; vertical-align:top; border-right:2px solid gray">
+    <div style="display:inline-block; width:15%; vertical-align:top; border-right:2px solid gray; border-bottom: 2px solid gray">
 
         <div class="block" style="width:100%">
             <div class="block-header">
@@ -118,7 +123,7 @@
             </div>
         </div>
 
-        
+
         <div class="block" style="width:100%">
             <div class="block-header">
                 <p class="block-header-text" style="font-size:large">
@@ -157,9 +162,47 @@
                 }
             </div>
         </div>
+
+        <div class="block" style="width:100%">
+            <div class="block-header">
+
+                <p class="block-header-text" style="font-size:large">
+                    RATING
+                </p>
+
+            </div>
+            @if (@Request.Cookies["RatingCookie"+Model.Task.UserTaskID.ToString()] == null)
+            {
+                <form action="/Manage/Vote" id="RatingForm">
+                    <div style="padding: 2px; text-align:center; font-size:25px">
+                        <input type="number" data-max="5" data-min="1" name="Rating" id="Rating" class="rating" />
+                        <input type="hidden" id="id" name="id" value="@Model.Task.UserTaskID" />
+                    </div>
+                </form>
+            }
+            else
+            {
+                <div style="padding: 2px; text-align:center; font-size:25px">
+                    @for (int i = 0; i < 5; i++)
+                    {
+                        if (i < int.Parse(Request.Cookies["RatingCookie" + Model.Task.UserTaskID.ToString()].Value))
+                        {
+                            <i class='glyphicon glyphicon-star' style="color:#7be068">
+                            </i>
+                        }
+                        else
+                        {
+                            <i class='glyphicon glyphicon-star-empty' style="color:#7be068">
+                            </i>
+                        }
+
+                    }
+                </div>
+            }
+        </div>
     </div>
 
-    <div style="display:inline-block; width:82%; border-left:2px solid gray">
+    <div style="display:inline-block; width:82%; border-left:2px solid gray; border-bottom: 2px solid gray">
         <div class="block" style="width:100%">
             <div class="block-header" style="word-break:normal">
                 <p class="block-header-text">@Model.Task.TaskName</p>
@@ -203,9 +246,9 @@
                 {
                     if (Model.Solved == 1)
                     {
-                            <div class="block-header" style="word-break:normal; background-color:#8fff00">
-                                <p class="block-header-text" style="background-color:#8fff00">TASK SOLVED</p>
-                            </div>
+                        <div class="block-header" style="word-break:normal; background-color:#8fff00">
+                            <p class="block-header-text" style="background-color:#8fff00">TASK SOLVED</p>
+                        </div>
                     }
                     else
                     {
@@ -232,30 +275,37 @@
 
         <div class="block" style="width:100%">
             <div class="block-header">
-                <p class="block-header-text" style="display:inline-block">COMMENTS</p>
+                <p class="block-header-text" style="display:inline-block">NEW COMMENT</p>
                 <button type="button" class="btn block-header-btn" style="height:100%; margin-bottom:0px; margin-top:0px; padding:10px; vertical-align:top" id="AddComment">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:white">
                     </span>
                 </button>
             </div>
             <form action="/Manage/AddComment" id="CommentSubmit">
-            <div id="output" style="position:relative; width:auto; padding:10px">
-                <textarea id="Comment" name="Comment" form="CommentSubmit" rows="5" class="form-control" style="width:100%; max-width:100%" placeholder="enter COMMENTS there"></textarea>
-            </div>
-            <input type="hidden" id="id" name="id" value="@Model.Task.UserTaskID">
-            </form>
-            @foreach (var i in Model.Comments)
-            {
-                <div style="margin-bottom:10px">
-                    <p>@i.CommentText</p>
+                <div id="output" style="position:relative; width:auto; padding:10px">
+                    <textarea id="Comment" name="Comment" form="CommentSubmit" rows="5" class="form-control" style="width:100%; max-width:100%" placeholder="enter COMMENTS there"></textarea>
                 </div>
-            }
+                <input type="hidden" id="id" name="id" value="@Model.Task.UserTaskID">
+            </form>
+            <div class="block-header">
+                <p class="block-header-text" style="display:inline-block">COMMENTS</p>
+            </div>
+            <div style="padding:5px">
+                @foreach (var i in Model.Comments)
+                {
+                    <div style="margin-top:10px; width:100%; background-color:white">
+                        <p class="block-table-text"># @i.CommentsID</p>
+                        <p class="block-table-text">@i.CommentText</p>
+                    </div>
+                }
+            </div>
         </div>
     </div>
 
 </body>
 </html>
 
+<script src="~/Scripts/bootstrap-rating-input.js"></script>
 <script src="~/Scripts/showdown.js"></script>
 <script>
     $(document).ready(function () {
@@ -270,5 +320,9 @@
     $("#AddComment")[0].onclick = function () {
         if ($("#Comment")[0].value != "")
             $("#CommentSubmit")[0].submit();
+    }
+
+    $("#Rating")[0].onchange = function () {
+        $("#RatingForm")[0].submit();
     }
 </script>

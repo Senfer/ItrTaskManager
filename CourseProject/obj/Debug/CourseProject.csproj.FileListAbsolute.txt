@@ -162,3 +162,7 @@ D:\project\ItrCP\CourseProject\obj\Debug\CourseProject.dll
 D:\project\ItrCP\CourseProject\obj\Debug\CourseProject.pdb
 D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.Solves.resources
 D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.Comments.resources
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.Users1.resources
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.Users11.resources
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.Float.resources
+D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrCP\CourseProject\obj\Debug\CourseProject.Migrations.Float2.resources
