@@ -17,6 +17,14 @@ namespace CourseProject.Controllers
         {
         }
 
+        public ActionResult Cabinet()
+        {
+            ApplicationDbContext DB = new ApplicationDbContext();
+            System.Collections.Generic.IEnumerable<UserTask> Model = DB.Tasks.AsEnumerable();
+            return View( Model );
+        }
+
+
         public ManageController(ApplicationUserManager userManager)
         {
             UserManager = userManager;
@@ -61,12 +69,12 @@ namespace CourseProject.Controllers
 
         //
         // GET: /Manage/RemoveLogin
-        public ActionResult RemoveLogin()
+        /*public ActionResult RemoveLogin()
         {
             var linkedAccounts = UserManager.GetLogins(User.Identity.GetUserId());
             ViewBag.ShowRemoveButton = HasPassword() || linkedAccounts.Count > 1;
             return View(linkedAccounts);
-        }
+        } */
 
         //
         // POST: /Manage/RemoveLogin

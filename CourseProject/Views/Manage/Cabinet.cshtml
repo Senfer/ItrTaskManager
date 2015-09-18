@@ -1,5 +1,4 @@
 ﻿@model System.Collections.Generic.IEnumerable<CourseProject.Models.UserTask>
-
 @{
     ViewBag.Title = "Cabinet";
     Dictionary<string, string> Colors = new Dictionary<string, string>
@@ -9,7 +8,6 @@
         {"EASY", "#87ff00"}
     };
 }
-
 <style>
     .block {
         height: auto;
@@ -72,28 +70,24 @@
         }
 </style>
 
-
 <div>
     <div style="width:15%; height:100%; display:inline-block; border-right:2px solid gray; vertical-align:top; margin:0px">
         <div id="ShowAllTasks" class="block" style="width: 100%; margin: 0px; margin-top: 30px; min-width: initial">
             <div id="ShowAllTasksHeader" class="block-header" style="text-align: left">
-                @Html.ActionLink("Show all", "FullTable", "Home", new {}, new {@class = "btn block-table-text", @style = "background-color:#7984ff; color:white; font-size:25px", @align = "middle"})
+                @Html.ActionLink( "Show all", "FullTable", "Home", new { }, new { @class = "btn block-table-text", @style = "background-color:#7984ff; color:white; font-size:25px", @align = "middle" } )
             </div> <!--но тут просто немного получается элемент дохукнопок =( -->
         </div>
-
         <div id="AddNewTask" class="block" style="width: 100%; margin: 0px; margin-top: 30px; min-width: initial">
-            <div id="AddNewTaskHeader" class="block-header" style="text-align: left">
-                <p class="block-header-text" style="font-size: large; vertical-align: middle">Add new task</p>
+            <div id="ShowAllTasksHeader" class="block-header" style="text-align: left">
+                @Html.ActionLink( "Add New", "AddingTasks", "Manage", new { }, new { @class = "btn block-table-text", @style = "background-color:#7984ff; color:white; font-size:25px", @align = "middle" } )
             </div>
         </div>
-
         <div id="ChangeNickname" class="block" style="width:100%;margin:0px; margin-top:30px; height:auto; background-color:white; ; min-width:initial">
             <div id="ChangeNameHeader" class="block-header">
                 <p class="block-header-text" style="font-size:large; vertical-align:middle">Change Nickname</p>
             </div>
         </div>
     </div>
-
     <div id="main" class="row" style="text-align: center; width: 80%; display: inline-block; border-left: 2px solid gray; margin: 0px">
         <div id="LatestT" class=" block">
             <div id="LatestTHeader" class="block-header" style="text-align: left">
@@ -139,16 +133,15 @@
                 </div>
             </div>
         </div>
-
-    <div id="UserStats" class=" block">
-        <div id="UserStatsHeader" class="block-header" style="text-align: left">
+        <div id="UserStats" class=" block">
+            <div id="UserStatsHeader" class="block-header" style="text-align: left">
                 <p class="block-header-text">User stats</p>
-        </div>
+            </div>
             <div style="position: relative; top: 0px; left: 0px; width: auto; padding-left: 2px; padding-right: 2px">
                 <table style="width: 100%">
-                    <tr> 
+                    <tr>
                         <td>
-                            @foreach (CourseProject.Models.UserTask i in Model.OrderBy(c => c.TaskRating > 0))
+                            @foreach(CourseProject.Models.UserTask i in Model.OrderBy( c => c.TaskRating > 0 ))
                             {
                             }
                         </td>
@@ -156,8 +149,6 @@
                             @Model.Count()
                         </td>
                     </tr>
-
-
 
                 </table>
             </div>

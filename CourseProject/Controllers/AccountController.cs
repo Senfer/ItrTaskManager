@@ -10,6 +10,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CourseProject.Models;
 
+using System.Net.Mail;
+
+
 namespace CourseProject.Controllers
 {
     [Authorize]
@@ -64,31 +67,37 @@ namespace CourseProject.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login( LoginViewModel model, string returnUrl )
         {
-            if (!ModelState.IsValid)
+            if(ModelState.IsValid)
             {
-                return View(model);
+                var user = await UserManager.FindAsync( model.UserName, model.Password );
+                if(user != null)
+                {
+                    if(user.ConfirmedEmail == true)
+                    {
+                        await SignInAsync( user, model.RememberMe );
+                        return RedirectToLocal( returnUrl );
+                    }
+                    else
+                    {
+                        ModelState.AddModelError( "", "Не подтвержден email." );
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError( "", "Неверный логин или пароль" );
+                }
             }
-
-            // Сбои при входе не приводят к блокированию учетной записи
-            // Чтобы ошибки при вводе пароля инициировали блокирование учетной записи, замените на shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Неудачная попытка входа.");
-                    return View(model);
-            }
+            return View( model );
         }
 
+        private async Task SignInAsync( ApplicationUser user, bool isPersistent )
+        {
+            AuthenticationManager.SignOut( DefaultAuthenticationTypes.ExternalCookie );
+            var identity = await UserManager.CreateIdentityAsync( user, DefaultAuthenticationTypes.ApplicationCookie );
+            AuthenticationManager.SignIn( new AuthenticationProperties() { IsPersistent = isPersistent }, identity );
+        }
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
@@ -150,42 +159,75 @@ namespace CourseProject.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register( RegisterViewModel model )
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                var user = new ApplicationUser() { UserName = model.UserName };
+                user.Email = model.Email;
+                user.ConfirmedEmail = false;
+                var result = await UserManager.CreateAsync( user, model.Password );
+                if(result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // Дополнительные сведения о том, как включить подтверждение учетной записи и сброс пароля, см. по адресу: http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Отправка сообщения электронной почты с этой ссылкой
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Подтверждение учетной записи", "Подтвердите вашу учетную запись, щелкнув <a href=\"" + callbackUrl + "\">здесь</a>");
-
-                    return RedirectToAction("Index", "Home");
+                    // наш email с заголовком письма
+                    MailAddress from = new MailAddress( "somemail@yandex.ru", "Web Registration" );
+                    // кому отправляем
+                    MailAddress to = new MailAddress( user.Email );
+                    // создаем объект сообщения
+                    MailMessage m = new MailMessage( from, to );
+                    // тема письма
+                    m.Subject = "Email confirmation";
+                    // текст письма - включаем в него ссылку
+                    m.Body = string.Format( "Для завершения регистрации перейдите по ссылке:" +
+                                    "<a href=\"{0}\" title=\"Подтвердить регистрацию\">{0}</a>",
+                        Url.Action( "ConfirmEmail", "Account", new { Token = user.Id, Email = user.Email }, Request.Url.Scheme ) );
+                    m.IsBodyHtml = true;
+                    // адрес smtp-сервера, с которого мы и будем отправлять письмо
+                    SmtpClient smtp = new System.Net.Mail.SmtpClient( "smtp.yandex.ru", 25 );
+                    // логин и пароль
+                    smtp.Credentials = new System.Net.NetworkCredential( "somemail@yandex.ru", "password" );
+                    smtp.Send( m );
+                    return RedirectToAction( "Confirm", "Account", new { Email = user.Email } );
                 }
-                AddErrors(result);
+                else
+                {
+                    AddErrors( result );
+                }
             }
-
-            // Появление этого сообщения означает наличие ошибки; повторное отображение формы
-            return View(model);
+            return View( model );
         }
+
+        [AllowAnonymous]
+        public string Confirm( string Email )
+        {
+            return "На почтовый адрес " + Email + " Вам высланы дальнейшие" +
+                    "инструкции по завершению регистрации";
+        } 
 
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(string userId, string code)
+        public async Task<ActionResult> ConfirmEmail( string Token, string Email )
         {
-            if (userId == null || code == null)
+            ApplicationUser user = this.UserManager.FindById( Token );
+            if(user != null)
             {
-                return View("Error");
+                if(user.Email == Email)
+                {
+                    user.ConfirmedEmail = true;
+                    await UserManager.UpdateAsync( user );
+                    await SignInAsync( user, isPersistent: false );
+                    return RedirectToAction( "Index", "Home", new { ConfirmedEmail = user.Email } );
+                }
+                else
+                {
+                    return RedirectToAction( "Confirm", "Account", new { Email = user.Email } );
+                }
             }
-            var result = await UserManager.ConfirmEmailAsync(userId, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
+            else
+            {
+                return RedirectToAction( "Confirm", "Account", new { Email = "" } );
+            }
         }
 
         //
