@@ -47,18 +47,17 @@
     }
 
     .block-table-text {
-        font-size: 30px;
+        font-size: 25px;
         font-family: 'Segoe UI';
         font-weight: lighter;
         margin: 0px;
-        padding: 5px;
+        padding: 0px;
     }
+
 
     .glyphicon.glyphicon-one-fine-dot:before {
         content: "\25cf";
-        font-size: 35px;
-        margin-bottom: 0px;
-        padding: 0px;
+        font-size: 25px;
     }
 
     .navbar-fixed-top {
@@ -106,26 +105,28 @@
                     @foreach(var i in Model.LatestTasks)
                     {
                     <tr style="background-color:white; border:3px solid lightgray; color:@Colors[i.TaskDifficulty]">
-                        <td class="block-table-text" style="padding:0px; width:60%; padding:4px; color:@Colors[i.TaskDifficulty]" align="left">
-                           @Html.ActionLink(@i.TaskName, "SolvingTask", "Manage", new { id = i.UserTaskID }, new { @style = "width:100%; height:100%; padding:0px; text-align:left", @class = "block-table-text",  })
+                        <td class="block-table-text" style="width:60%; color:@Colors[i.TaskDifficulty]" align="left">
+                          
+                           @Html.ActionLink(@i.TaskName, "SolvingTask", "Manage", new { id = i.UserTaskID }, new { @style = "width:100%; height:100%; padding:0px; text-align:left"})
+                        
                         </td>
                         <td class="block-table-text" style="width:30%; padding:4px" align="right">
                            @i.TaskCategory
                         </td>
-                        <td style="padding-bottom:6px;width:10%;">
-                            <span class="col-md-1 glyphicon glyphicon-align-center glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
+                        <td style="padding-bottom:6px;width:7%;text-align:center">
+                            <span class="glyphicon glyphicon-one-fine-dot" aria-hidden="true" style="margin-bottom:8px"></span>
                         </td>
                     </tr>
 
                     }
                 </table>
-                <div style="text-align:right">
-                    @Html.ActionLink("VIEW ALL", "FullTable", new { }, new { @class = "btn block-table-text", @style = "background-color:#fcd332; color:white; font-size:25px", @align = "right" })
+                <div style="text-align:right; padding:2px">
+                    @Html.ActionLink("VIEW ALL", "FullTable", new { }, new { @class = "btn block-table-text", @style = "background-color:#fcd332; color:white; font-size:25px; padding:2px", @align = "right" })
                 </div>
             </div>
 
         </div>
-        <div id="RatedT" class="block" style="min-width:500px">
+        <div id="RatedT" class="block" >
             <div id="RatedTHeader" class="block-header" style="text-align:left">
                 <p class="block-header-text">RATED tasks</p>
             </div>
@@ -153,10 +154,12 @@
                         {
                             Rating = Rating.Substring(0, 3);
                         }
-                      
+
                         <tr style="background-color:white; border:3px solid lightgray; color:@Colors[i.TaskDifficulty]">
                             <td class="block-table-text" style="padding:0px;padding:4px; width:50%" align="left">
-                               @Html.ActionLink(@i.TaskName, "SolvingTask", "Manage", new { id = i.UserTaskID }, new { @style = "width:100%; height:100%; padding:0px; text-align:left", @class = "block-table-text", })
+                               
+                                @Html.ActionLink(@i.TaskName, "SolvingTask", "Manage", new { id = i.UserTaskID },
+                               new { @style = "width:100%; height:100%; padding:0px; text-align:left; word-break:break-all", @class = "block-table-text", })
                             </td>
                             <td class="block-table-text" style="padding:4px; width:20%" align="right">
                                 @Rating.ToString()
@@ -170,8 +173,8 @@
                         </tr>
                     }
                 </table>
-                <div style="text-align:right">
-                    @Html.ActionLink("VIEW ALL", "FullTable", new { }, new { @class = "btn block-table-text", @style = "background-color:#fcd332; color:white; font-size:25px", @align = "right" })
+                <div style="text-align:right; padding:2px">
+                    @Html.ActionLink("VIEW ALL", "FullTable", new { }, new { @class = "btn block-table-text", @style = "background-color:#fcd332; color:white; font-size:25px; padding:2px", @align = "right" })
                 </div>
             </div>
         </div>
@@ -197,6 +200,7 @@
                         
                         <tr style="background-color:white; border:3px solid lightgray;color:@Colors[i.TaskDifficulty]">
                             <td class="block-table-text" style="padding:0px; width:60%; padding:4px" align="left">
+                                
                                 @i.TaskName
                             </td>
                             <td class="block-table-text" style="width:30%; padding:4px" align="right">
@@ -208,13 +212,13 @@
                         </tr>
                     }
                 </table>
-                <div style="text-align:right">
-                    @Html.ActionLink("VIEW ALL", "FullTable",new{},new{ @class="btn block-table-text", @style="background-color:#fcd332; color:white; font-size:25px", @align="right"})
+                <div style="text-align:right; padding:2px">
+                    @Html.ActionLink("VIEW ALL", "FullTable",new{},new{ @class="btn block-table-text", @style="background-color:#fcd332; color:white; font-size:25px; padding:2px", @align="right"})
                 </div>
             </div>
         </div>
 
-        <div id="RatedU" class="block">
+        <div id="RatedU" class="block" >
             <div id="RatedUHeader" class="block-header" style="text-align:left">
                 <p class="block-header-text">RATED users</p>
             </div>
@@ -241,6 +245,7 @@
                     <tr style="background-color:white; border:3px solid lightgray">
 
                         <td class="block-table-text" style="padding:4px; color:gray;" align="left">
+                            
                             @i.UserName
                         </td>
                         <td class="block-table-text" style="color:gray; padding:4px" align="right">
@@ -249,7 +254,7 @@
                     </tr>
                     }
                 </table>
-                <div style="text-align:right">
+                <div style="text-align:right; padding:2px">
                     <button class="btn block-table-text" style="background-color:#fcd332; color:white; font-size:25px" align="right">VIEW ALL</button>
                 </div>
             </div>

@@ -311,57 +311,82 @@ namespace CourseProject.Controllers
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
 
-        public ActionResult AddingTasks(System.Collections.Generic.List<string> Answers, System.Collections.Generic.List<string> Tags, string Category, string Difficulty, string HTML, string Name)
+        public ActionResult AddingTasks(System.Collections.Generic.List<string> Answers, System.Collections.Generic.List<string> Tags, string Category, string Difficulty, string HTML, string Name, int? id)
         {
-            if (Answers != null && Tags != null && Difficulty !=null && Category != null && HTML != null)
+            ApplicationDbContext DB = new ApplicationDbContext();
+            if (Answers != null && Difficulty != null && Category != null && HTML != null)
             {
-                if (Answers.Count > 0 && Tags.Count > 0)
+                if (Answers.Count > 0)
                 {
-                    ApplicationDbContext DB = new ApplicationDbContext();
-                    UserTask NewTask = new UserTask();
-                    NewTask.TaskName = Name;
-                    NewTask.TaskDifficulty = Difficulty;
-                    NewTask.TaskCategory = Category;
-                    NewTask.TaskText = HTML;
-                    NewTask.TaskRating = 0;
-                    NewTask.SolveCount = 0;
-                    foreach (ApplicationUser i in DB.Users.AsEnumerable())
-                    {
-                        if (i.UserName == User.Identity.Name)
-                            NewTask.UserID = i.Id;
-                    }
-                    DB.Tasks.Add(NewTask);
-                    DB.Entry(NewTask).State = System.Data.Entity.EntityState.Added;
-                    int NewTaskID = DB.Tasks.ToList().Last(c => c.UserTaskID > 0).UserTaskID + 1;                    
-                    for (int i = 0; i < Tags.Count; i++)
-                    {
-                        string CurrentTag = Tags[i];
-                        if (DB.Tags.Where(c => c.TagText == CurrentTag).ToList().Count == 0)
+                    if (id == null)
+                    {                        
+                        UserTask NewTask = new UserTask();
+                        NewTask.TaskName = Name;
+                        NewTask.TaskDifficulty = Difficulty;
+                        NewTask.TaskCategory = Category;
+                        NewTask.TaskText = HTML;
+                        NewTask.TaskRating = 0;
+                        NewTask.SolveCount = 0;
+                        NewTask.UserID = DB.Users.First(c => c.UserName == User.Identity.Name).Id;
+                        DB.Tasks.Add(NewTask);
+                        DB.Entry(NewTask).State = System.Data.Entity.EntityState.Added;
+                        int NewTaskID = DB.Tasks.ToList().Last(c => c.UserTaskID > 0).UserTaskID + 1;
+                        for (int i = 0; i < Tags.Count; i++)
                         {
+                            string CurrentTag = Tags[i];
                             Tags NewTag = new Tags();
                             NewTag.TagText = Tags[i];
                             NewTag.TaskID = NewTaskID;
                             DB.Tags.Add(NewTag);
-                            DB.Entry(NewTag).State = System.Data.Entity.EntityState.Added;
                         }
-                    }
-
-                    for (int i = 0; i < Answers.Count; i++)
-                    {
-                        string CurrentAnswer = Answers[i];
-                        if (DB.Answers.Where(c => c.AnswerText == CurrentAnswer).ToList().Count == 0)
+                        for (int i = 0; i < Answers.Count; i++)
                         {
+                            string CurrentAnswer = Answers[i];
+
                             Answers NewAnswer = new Answers();
                             NewAnswer.AnswerText = Answers[i];
                             NewAnswer.TaskID = NewTaskID;
                             DB.Answers.Add(NewAnswer);
                             DB.Entry(NewAnswer).State = System.Data.Entity.EntityState.Added;
+
                         }
+
+                    }
+                    else
+                    {
+                        DB.Tags.RemoveRange(DB.Tags.Where(c => c.TaskID == id));
+                        DB.Answers.RemoveRange(DB.Answers.Where(c => c.TaskID == id));
+                        for (int i = 0; i < Tags.Count; i++)
+                        {
+                            string CurrentTag = Tags[i];
+
+                            Tags NewTag = new Tags();
+                            NewTag.TagText = Tags[i];
+                            NewTag.TaskID = (int)id;
+                            DB.Tags.Add(NewTag);
+                            DB.Entry(NewTag).State = System.Data.Entity.EntityState.Added;
+                        }
+
+                        for (int i = 0; i < Answers.Count; i++)
+                        {
+                            string CurrentAnswer = Answers[i];
+
+                            Answers NewAnswer = new Answers();
+                            NewAnswer.AnswerText = Answers[i];
+                            NewAnswer.TaskID = (int)id;
+                            DB.Answers.Add(NewAnswer);
+                            DB.Entry(NewAnswer).State = System.Data.Entity.EntityState.Added;
+                        }
+                        DB.Tasks.First(c=>c.UserTaskID == id).TaskName = Name;
+                        DB.Tasks.First(c => c.UserTaskID == id).TaskDifficulty = Difficulty;
+                        DB.Tasks.First(c => c.UserTaskID == id).TaskCategory = Category;
+                        DB.Tasks.First(c => c.UserTaskID == id).TaskText = HTML;                        
                     }
                     DB.SaveChanges();
                 }
             }
-            return View();
+
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -448,6 +473,19 @@ namespace CourseProject.Controllers
             DB.SaveChanges();
             return RedirectToAction("SolvingTask", new { id = id });
         }
+
+        public ActionResult ChangeTask(int id)
+        {
+            ApplicationDbContext DB = new ApplicationDbContext();
+            ChangeTaskModel Model = new ChangeTaskModel();
+            Model.Task = DB.Tasks.First(c => c.UserTaskID == id);
+            Model.Answers = DB.Answers.Where(c => c.TaskID == id);
+            Model.Tags = DB.Tags.Where(c=>c.TaskID == id);
+            return View(Model);
+        }
+
+
+       
 #region Вспомогательные приложения
         // Используется для защиты от XSRF-атак при добавлении внешних имен входа
         private const string XsrfKey = "XsrfId";

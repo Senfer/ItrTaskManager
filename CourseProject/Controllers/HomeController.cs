@@ -63,5 +63,14 @@ namespace CourseProject.Controllers
             System.Collections.Generic.IEnumerable<UserTask> Model = DB.Tasks.AsEnumerable();
             return View(Model);
         }
+
+        public ActionResult DeleteTask(int id)
+        {
+            ApplicationDbContext DB = new ApplicationDbContext();
+            UserTask DeletingTask = DB.Tasks.First(c => c.UserTaskID == id);
+            DB.Tasks.Remove(DeletingTask);
+            DB.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

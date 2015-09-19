@@ -95,4 +95,11 @@ namespace CourseProject.Models
         public int Solved { get; set; }
 
     }
+
+    public class ChangeTaskModel
+    {
+        public UserTask Task { get; set; }
+        public System.Collections.Generic.IEnumerable<Tags> Tags { get; set; }
+        public System.Collections.Generic.IEnumerable<Answers> Answers { get; set; }
+    }
 }

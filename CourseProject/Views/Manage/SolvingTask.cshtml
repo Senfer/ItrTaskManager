@@ -206,8 +206,29 @@
         <div class="block" style="width:100%">
             <div class="block-header" style="word-break:normal">
                 <p class="block-header-text">@Model.Task.TaskName</p>
+                @if (Model.Solved == -2)
+                {
+                    <div style="display:inline-block; vertical-align:top">
+                        <form id="ChangeTask" action="/Manage/ChangeTask">
+                            <button type="submit" class="btn block-header-btn" style="height:100%; margin-bottom:0px; margin-top:0px; padding:10px; vertical-align:top;  background-color:#8fff00" id="ChangeTaskBtn">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:white">
+                                </span>
+                            </button>
+                            <input type="hidden" id="id" name="id" value="@Model.Task.UserTaskID">
+                        </form>
+                    </div>
+                    <div style="display:inline-block; vertical-align:top">
+                        <form id="DeleteTask" action="/Home/DeleteTask">
+                            <button type="submit" class="btn block-header-btn" style="height:100%; margin-bottom:0px; margin-top:0px; padding:10px; vertical-align:top;  background-color:#ff6a00" id="DeleteTaskBtn">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:white">
+                                </span>
+                            </button>
+                            <input type="hidden" id="id" name="id" value="@Model.Task.UserTaskID">
+                        </form>
+                    </div>
+                }
             </div>
-            <div id="output" style="position:relative; width:auto; padding:10px">
+            <div id="output" style="position:relative; width:auto; padding:10px; overflow:auto">
                 @Model.Task.TaskText
             </div>
 
@@ -237,7 +258,7 @@
                 if (Model.Solved == -2)
                 {
                     <div class="block-header">
-                        <div style="display:inline-block; border-right:2px solid lightgray">
+                        <div style="display:inline-block">
                             <p class="block-header-text">YOU CREATED THIS TASK</p>
                         </div>
                     </div>
@@ -263,6 +284,8 @@
             }
 
         </div>
+
+
 
         @if (Model.Solved == 0)
         {
@@ -311,6 +334,7 @@
     $(document).ready(function () {
         var str = $("#output")[0].textContent;
         var converter = new showdown.Converter();
+        str = str.trim();
         var html = converter.makeHtml(str);
         $("#output")[0].innerHTML = html;
     })
