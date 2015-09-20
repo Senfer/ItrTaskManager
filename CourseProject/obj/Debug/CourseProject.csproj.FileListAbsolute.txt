@@ -430,3 +430,4 @@ D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrTaskManager\CourseProject\bin\ru\Micro
 D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrTaskManager\CourseProject\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrTaskManager\CourseProject\obj\Debug\CourseProject.pdb
 D:\BACKUP DISKA C SHWOOPSH\ITR PROJECT\ItrTaskManager\CourseProject\obj\Debug\CourseProject.Migrations.Sauce.resources
+C:\Users\Vlad\Desktop\ItrTaskManager\CourseProject\obj\Debug\CourseProject.Migrations.Sauce.resources
