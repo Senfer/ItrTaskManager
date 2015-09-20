@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CourseProject.Models;
 
+
 namespace CourseProject.Controllers
 {
     [Authorize]
@@ -394,6 +395,7 @@ namespace CourseProject.Controllers
         {
             SolveTaskModel Model = new SolveTaskModel();
             ApplicationDbContext DB = new ApplicationDbContext();
+
             Model.Task = DB.Tasks.First(c => c.UserTaskID == id);
             Model.Answers = DB.Answers.Where(c => c.TaskID == id).AsEnumerable();
             Model.Tags = DB.Tags.Where(c => c.TaskID == id).AsEnumerable();
@@ -453,16 +455,23 @@ namespace CourseProject.Controllers
         public ActionResult Vote(int Rating, int id)
         {
             ApplicationDbContext DB = new ApplicationDbContext();
-            float OldRating = DB.Tasks.First(c => c.UserTaskID == id).TaskRating;
-            DB.Tasks.First(c => c.UserTaskID == id).TaskRating = OldRating + Rating;
-            DB.Tasks.First(c => c.UserTaskID == id).TaskRatingCount++;
-            string TaskCreatorID = DB.Tasks.First(c => c.UserTaskID == id).UserID;
-            Ratings NewRating = new Ratings();
-            NewRating.RatingValue = Rating;
-            NewRating.TaskID = id;
             string CurrentUserID = DB.Users.First(c => c.UserName == User.Identity.Name).Id;
-            NewRating.UserID = CurrentUserID;
-            DB.Entry(NewRating).State = System.Data.Entity.EntityState.Added;
+            string TaskCreatorID = DB.Tasks.First(c => c.UserTaskID == id).UserID;
+
+            DB.Tasks.First(c => c.UserTaskID == id).TaskRating += Rating;
+            DB.Tasks.First(c => c.UserTaskID == id).TaskRatingCount++;
+            if (DB.Ratings.Any(c => c.TaskID == id && c.UserID == CurrentUserID) == false)
+            {
+                Ratings NewRating = new Ratings();
+                NewRating.RatingValue = Rating;
+                NewRating.TaskID = id;
+                NewRating.UserID = CurrentUserID;
+                DB.Entry(NewRating).State = System.Data.Entity.EntityState.Added;
+            }
+            else
+            {
+                DB.Ratings.First(c => c.UserID == CurrentUserID && c.TaskID == id).RatingValue = Rating;
+            }
 
             float UserRating = 0;
             foreach (var i in DB.Tasks.Where(c => c.UserID == TaskCreatorID))
@@ -484,6 +493,16 @@ namespace CourseProject.Controllers
             return View(Model);
         }
 
+
+        public ActionResult DeleteTask(int id)
+        {
+            ApplicationDbContext DB = new ApplicationDbContext();
+            DB.Tasks.First(c => c.UserTaskID == id).Deleted = true;
+            DB.Tags.RemoveRange(DB.Tags.Where(c => c.TaskID == id).AsEnumerable());
+            DB.Answers.RemoveRange(DB.Answers.Where(c => c.TaskID == id).AsEnumerable());
+            DB.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
 
        
 #region Вспомогательные приложения

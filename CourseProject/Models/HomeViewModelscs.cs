@@ -12,4 +12,6 @@ namespace CourseProject.Models
         public System.Collections.Generic.IEnumerable<UserTask> UnsolvedTasks { get; set; }
         public System.Collections.Generic.IEnumerable<ApplicationUser> RatedUsers { get; set; }
     }
+
+    
 }

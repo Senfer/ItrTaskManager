@@ -33,6 +33,7 @@ namespace CourseProject.Models
         public string TaskDifficulty { get; set; }
         public int SolveCount { get; set; }
         public string UserID { get; set; }
+        public bool Deleted { get; set; }
     }
 
     public class Tags
@@ -90,4 +91,6 @@ namespace CourseProject.Models
         public System.Data.Entity.DbSet<Comments> Comments { get; set; }
         public System.Data.Entity.DbSet<Ratings> Ratings { get; set; }
     }
+
+
 }

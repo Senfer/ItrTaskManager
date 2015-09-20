@@ -149,18 +149,7 @@
 <div style="text-align:center">
     <div style="width:15%; display:inline-block;margin:0px; padding:0px; vertical-align:top; border-right:2px solid gray">
 
-        <div class="block" style="width:100%; height:auto; text-align:center">
-            <div class="block-header" style="text-align:left">
-                <p class="block-header-text" style="font-size:large; vertical-align:middle" id="TaskName">TASK name</p>
-                <button type="button" class="btn block-header-btn" style="padding:10px;" id="ChangeName">
-                    <span class="glyphicon glyphicon-refresh" aria-hidden="true" style="color:white">
-                    </span>
-                </button>
-            </div>
-            <div>
-                <input id="NameInput" type="text" style="max-width:98%; width:98%; display:inline; margin:2px; align-self:center" placeholder="Enter NAME here">
-            </div>
-        </div>
+        
 
         <div class="block" style="width:100%; height:auto">
             <div class="block-header" style="text-align:left">
@@ -241,18 +230,7 @@
             </form>
         </div>
 
-        <div class="block" style="width:100%; height:auto; text-align:center">
-            <div class="block-header" style="text-align:left">
-                <p class="block-header-text" style="font-size: large; vertical-align:middle; margin:0px">ANSWERS</p>
-                <button type="button" class="btn block-header-btn" style="height:100%; margin-bottom:0px; margin-top:0px; padding:0.5em;font-size:20px; height:40px; width:40px;vertical-align:middle" id="AddAnswer">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:white">
-                    </span>
-                </button>
-            </div>
-            <input id="AnswerInput" type="text" style="max-width:98%; width:98%; display:inline; margin:2px; align-self:center" placeholder="Enter ANSWERS here">
-            <div id="NewAnswers">
-            </div>
-        </div>
+        
 
 
         <form id="Submit" action="/Manage/AddingTasks">
@@ -263,12 +241,38 @@
 
     </div>
     <div style="width:82%; display:inline-block; padding:0px; border-left:2px solid gray">
+        <div class="block" style="width:100%; height:auto; text-align:center">
+            <div class="block-header" style="text-align:left">
+                <p class="block-header-text" style="font-size:large; vertical-align:middle" id="TaskName">TASK name</p>
+                <button type="button" class="btn block-header-btn" style="padding:10px;" id="ChangeName">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true" style="color:white">
+                    </span>
+                </button>
+            </div>
+            <div>
+                <input id="NameInput" type="text" style="max-width:98%; width:98%; display:inline; margin:2px; align-self:center" placeholder="Enter NAME here">
+            </div>
+        </div>
+
         <div class="block" style="width:100%; height:auto">
             <div class="block-header" style="background-color: #7be068;">
                 <p class="block-header-text">MARKDOWN text</p>
             </div>
             <div>
                 <textarea id="input" rows="30" placeholder="Input Task text here" class="form-control" style="max-width:inherit; max-height:inherit"></textarea>
+            </div>
+        </div>
+
+        <div class="block" style="width:100%; height:auto; text-align:center">
+            <div class="block-header" style="text-align:left">
+                <p class="block-header-text" style="font-size: large; vertical-align:middle; margin:0px">ANSWERS</p>
+                <button type="button" class="btn block-header-btn" style="height:100%; margin-bottom:0px; margin-top:0px; padding:0.5em;font-size:20px; height:40px; width:40px;vertical-align:middle" id="AddAnswer">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:white">
+                    </span>
+                </button>
+            </div>
+            <input id="AnswerInput" type="text" style="max-width:98%; width:98%; display:inline; margin:2px; align-self:center" placeholder="Enter ANSWERS here">
+            <div id="NewAnswers">
             </div>
         </div>
 

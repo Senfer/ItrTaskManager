@@ -49,9 +49,6 @@ namespace CourseProject.Models
     public class LoginViewModel
     {
         [Required]
-        [Display( Name = "User name" )]
-        public string UserName { get; set; } 
-        [Required]
         [Display(Name = "Адрес электронной почты")]
         [EmailAddress]
         public string Email { get; set; }
@@ -67,10 +64,6 @@ namespace CourseProject.Models
 
     public class RegisterViewModel
     {
-        [Required]
-        [Display( Name = "User name" )]
-        public string UserName { get; set; }      //именно это оно и не может найти. блин
-
         [Required]
         [EmailAddress]
         [Display(Name = "Адрес электронной почты")]

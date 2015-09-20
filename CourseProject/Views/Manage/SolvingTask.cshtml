@@ -171,34 +171,21 @@
                 </p>
 
             </div>
-            @if (Model.Rating == 0)
-            {
-                <form action="/Manage/Vote" id="RatingForm">
-                    <div style="padding: 2px; text-align:center; font-size:25px">
-                        <input type="number" data-max="5" data-min="1" name="Rating" id="Rating" class="rating" />
-                        <input type="hidden" id="id" name="id" value="@Model.Task.UserTaskID" />
-                    </div>
-                </form>
-            }
-            else
-            {
-                <div style="padding: 2px; text-align:center; font-size:25px">
-                    @for (int i = 0; i < 5; i++)
+            <form action="/Manage/Vote" id="RatingForm">
+                <div style="padding: 2px; text-align:center; font-size:25px; color:#7be068">
+                    @if (Model.Rating == 0)
                     {
-                        if (i < Model.Rating)
-                        {
-                            <i class='glyphicon glyphicon-star' style="color:#7be068">
-                            </i>
-                        }
-                        else
-                        {
-                            <i class='glyphicon glyphicon-star-empty' style="color:#7be068">
-                            </i>
-                        }
+
+                        <input type="number" data-max="5" data-min="1" name="Rating" id="Rating" class="rating" />
 
                     }
+                    else
+                    {
+                        <input type="number" data-max="5" data-min="1" data-empty-value="@Model.Rating" name="Rating" id="Rating" class="rating" value="@Model.Rating" />
+                    }
+                    <input type="hidden" id="id" name="id" value="@Model.Task.UserTaskID" />
                 </div>
-            }
+            </form>
         </div>
     </div>
 
@@ -218,7 +205,7 @@
                         </form>
                     </div>
                     <div style="display:inline-block; vertical-align:top">
-                        <form id="DeleteTask" action="/Home/DeleteTask">
+                        <form id="DeleteTask" action="/Manage/DeleteTask">
                             <button type="submit" class="btn block-header-btn" style="height:100%; margin-bottom:0px; margin-top:0px; padding:10px; vertical-align:top;  background-color:#ff6a00" id="DeleteTaskBtn">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:white">
                                 </span>
@@ -331,14 +318,15 @@
 <script src="~/Scripts/bootstrap-rating-input.js"></script>
 <script src="~/Scripts/showdown.js"></script>
 <script>
+   
     $(document).ready(function () {
         var str = $("#output")[0].textContent;
         var converter = new showdown.Converter();
         str = str.trim();
         var html = converter.makeHtml(str);
         $("#output")[0].innerHTML = html;
-    })
-
+        
+    });
 
 
     $("#AddComment")[0].onclick = function () {

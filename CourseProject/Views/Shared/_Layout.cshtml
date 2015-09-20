@@ -18,9 +18,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("НАЧАЛЬНАЯ страница", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "backgorund-color:#87ff00; color:white; font-size:24px" })
+                @Html.ActionLink("НАЧАЛЬНАЯ страница", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "backgorund-color:#87ff00; color:white; font-size:24px; display: inline-block" })
+
             </div>
-            <div class="navbar-collapse collapse">
+
+            <div class="navbar-collapse collapse" style="text-align:right">
+                <a href="#" id="Nickname" name="Nickname" data-type="text" data-send="always" class="editable editable-click editable-open" data-url="Home/ChangeNickname" title="" style="display:inline-block; vertical-align:middle">@Request.Cookies["Nickname"].Value</a>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -38,3 +41,13 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+<link href="/Content/bootstrap-editable.css" rel="stylesheet">
+<script src="~/Scripts/bootstrap-editable.js"></script>
+<script>
+    $.fn.editable.defaults.mode = 'inline';
+
+    $(document).ready(function () {
+       $('#Nickname').editable();
+    });
+
+</script>
