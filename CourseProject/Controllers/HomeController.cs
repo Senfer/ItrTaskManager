@@ -8,7 +8,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using CourseProject.Models;
-using MarkdownSharp;
+//using MarkdownSharp;
 
 namespace CourseProject.Controllers
 {
@@ -166,14 +166,14 @@ namespace CourseProject.Controllers
             Response.Cookies["Nickname"].Value = value;
         }
 
-        [HttpGet]
+       /* [HttpGet]
         public string CompanionNeedsView(int id)
         {
             ApplicationDbContext DB = new ApplicationDbContext();
             Markdown translator = new Markdown();
             return translator.Transform(DB.Tasks.First(c => c.UserTaskID == id).TaskText);
  
-        }
+        }  */
         
     }
 }

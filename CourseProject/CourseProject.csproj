@@ -19,7 +19,7 @@
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,39 +39,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Reference Include="MarkdownSharp">
-      <HintPath>..\packages\Markdown.1.14.3\lib\net45\MarkdownSharp.dll</HintPath>
-=======
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
->>>>>>> origin/master
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Data.Edm">
-      <HintPath>..\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Data.OData">
-      <HintPath>..\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Spatial">
-      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -79,16 +65,13 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Http.OData">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.2.0\lib\net45\System.Web.Http.OData.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -144,17 +127,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-=======
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
->>>>>>> origin/master
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -201,15 +173,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\UserTasksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Migrations\201509042332104_InitialCreate.cs" />
     <Compile Include="Migrations\201509042332104_InitialCreate.Designer.cs">
       <DependentUpon>201509042332104_InitialCreate.cs</DependentUpon>
@@ -258,25 +227,17 @@
     <Compile Include="Migrations\201509181351136_Float2.Designer.cs">
       <DependentUpon>201509181351136_Float2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201509181612322_NewRating.cs" />
-    <Compile Include="Migrations\201509181612322_NewRating.Designer.cs">
-      <DependentUpon>201509181612322_NewRating.cs</DependentUpon>
+    <Compile Include="Migrations\201509182108282_temp.cs" />
+    <Compile Include="Migrations\201509182108282_temp.Designer.cs">
+      <DependentUpon>201509182108282_temp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201509190009487_LELES.cs" />
-    <Compile Include="Migrations\201509190009487_LELES.Designer.cs">
-      <DependentUpon>201509190009487_LELES.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201509200052332_UserTasks4.cs" />
-    <Compile Include="Migrations\201509200052332_UserTasks4.Designer.cs">
-      <DependentUpon>201509200052332_UserTasks4.cs</DependentUpon>
-=======
-    <Compile Include="Migrations\201509041912466_InitialCreate.cs" />
-    <Compile Include="Migrations\201509041912466_InitialCreate.Designer.cs">
-      <DependentUpon>201509041912466_InitialCreate.cs</DependentUpon>
->>>>>>> origin/master
+    <Compile Include="Migrations\201509182218266_Sauce.cs" />
+    <Compile Include="Migrations\201509182218266_Sauce.Designer.cs">
+      <DependentUpon>201509182218266_Sauce.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CabinetViewModel.cs" />
     <Compile Include="Models\HomeViewModelscs.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -284,13 +245,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-editable.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap-editable.js" />
     <Content Include="Scripts\bootstrap-rating-input.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -311,7 +270,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\showdown.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -352,11 +313,11 @@
     <Content Include="Views\Manage\AddingTasks.cshtml" />
     <Content Include="Views\Home\FullTable.cshtml" />
     <Content Include="Views\Manage\SolvingTask.cshtml" />
-    <Content Include="Views\Manage\ChangeTask.cshtml" />
+    <Content Include="Views\Manage\Cabinet.cshtml" />
+    <Content Include="Views\Account\Cabinet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\API\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -366,7 +327,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\201509042332104_InitialCreate.resx">
       <DependentUpon>201509042332104_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
@@ -403,18 +363,11 @@
     <EmbeddedResource Include="Migrations\201509181351136_Float2.resx">
       <DependentUpon>201509181351136_Float2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509181612322_NewRating.resx">
-      <DependentUpon>201509181612322_NewRating.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201509182108282_temp.resx">
+      <DependentUpon>201509182108282_temp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509190009487_LELES.resx">
-      <DependentUpon>201509190009487_LELES.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509200052332_UserTasks4.resx">
-      <DependentUpon>201509200052332_UserTasks4.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="Migrations\201509041912466_InitialCreate.resx">
-      <DependentUpon>201509041912466_InitialCreate.cs</DependentUpon>
->>>>>>> origin/master
+    <EmbeddedResource Include="Migrations\201509182218266_Sauce.resx">
+      <DependentUpon>201509182218266_Sauce.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -435,11 +388,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2340</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost</IISUrl>
+          <IISUrl>http://localhost:8080</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://192.168.1.3:8080/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
